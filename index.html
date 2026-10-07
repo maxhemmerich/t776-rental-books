@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T776 Rental Books — rental bookkeeping workbook for Canadian landlords</title>
+<meta name="description" content="A Microsoft Excel workbook for Canadian landlords who file Form T776. Rent, expenses, mileage and a T776 summary in one file. $29 CAD, one-time.">
+<style>
+  :root{
+    --paper:#f7f2e7;
+    --ink:#181712;
+    --ink-soft:#4c463a;
+    --rule:#d8cdb6;
+    --accent:#1b4d3e;
+    --accent-dark:#123227;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.55;
+    text-align:left;
+  }
+  .wrap{max-width:44rem;margin:0 auto;padding:30px 20px 60px}
+  p{margin:0 0 16px;max-width:38rem}
+  a{color:var(--accent)}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+  .kicker{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 18px;
+  }
+  h1{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:clamp(27px,6.6vw,40px);
+    line-height:1.14;
+    letter-spacing:-.01em;
+    margin:0 0 18px;
+    max-width:34rem;
+  }
+  h2{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:clamp(21px,4.6vw,27px);
+    line-height:1.2;
+    margin:0 0 14px;
+    max-width:34rem;
+  }
+  h3{
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:.02em;
+    margin:26px 0 10px;
+  }
+  section{margin-top:46px;border-top:1px solid var(--rule);padding-top:26px}
+  section.first{margin-top:0;border-top:0;padding-top:0}
+
+  .lede{font-size:19px;color:var(--ink-soft);max-width:36rem}
+  .price{
+    font-family:var(--serif);
+    font-size:25px;
+    margin:0 0 20px;
+  }
+  .price .unit{font-family:var(--sans);font-size:16px;color:var(--ink-soft);font-weight:400}
+
+  .buy-block{margin:22px 0 0}
+  .buy{
+    display:inline-block;
+    min-height:48px;
+    padding:14px 24px;
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.2;
+    font-weight:600;
+    text-decoration:none;
+    text-align:center;
+    border-radius:3px;
+    border:1px solid transparent;
+    cursor:pointer;
+  }
+  .buy--live{background:var(--accent);color:#f7f2e7;border-color:var(--accent)}
+  .buy--live:hover,.buy--live:focus{background:var(--accent-dark)}
+  .buy--inert{
+    background:transparent;
+    color:var(--ink-soft);
+    border:1px dashed #b3a689;
+    cursor:not-allowed;
+  }
+  .buy-note{
+    margin:14px 0 0;
+    padding:11px 14px;
+    background:#eee4cd;
+    border-left:3px solid var(--accent);
+    font-size:16px;
+    max-width:34rem;
+  }
+  .disclaimer{
+    margin:14px 0 0;
+    font-size:16px;
+    color:var(--ink-soft);
+    max-width:34rem;
+  }
+
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0 6px}
+  table{width:100%;max-width:44rem;border-collapse:collapse;font-size:16px}
+  th{
+    text-align:left;
+    font-family:var(--sans);
+    font-size:14px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    font-weight:700;
+    padding:0 14px 8px 0;
+    border-bottom:1px solid var(--ink-soft);
+  }
+  td{
+    text-align:left;
+    vertical-align:top;
+    padding:11px 14px 11px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  th:last-child,td:last-child{padding-right:0}
+  .tab-name{font-family:var(--mono);font-size:16px;white-space:nowrap}
+  .code{font-family:var(--mono);font-size:16px;white-space:nowrap;width:6.2em}
+  .tbl-note{font-size:16px;color:var(--ink-soft);max-width:36rem}
+  .dl-link{
+    display:inline-block;
+    min-height:44px;
+    padding:13px 0;
+    font-size:17px;
+    font-weight:600;
+    color:var(--accent);
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+
+  ul{margin:0 0 16px;padding-left:1.15rem;max-width:36rem}
+  li{margin:0 0 9px}
+
+  .foot{
+    margin-top:52px;
+    border-top:1px solid var(--rule);
+    padding-top:18px;
+    font-size:16px;
+    color:var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="first">
+    <p class="kicker">T776 Rental Books</p>
+    <h1>Keep your rental books in one workbook, totalled by Form T776 line.</h1>
+    <p class="lede">T776 Rental Books is a Microsoft Excel workbook for Canadian landlords who file Form T776 with their personal tax return. You enter rent and expenses through the year. At tax time the summary tab is already sorted into line numbers.</p>
+    <p class="price">$<span data-price>29</span> <span class="unit">CAD, one-time. One .xlsx file.</span></p>
+
+    <div class="buy-block" data-buy-slot>
+      <button type="button" class="buy buy--inert" aria-disabled="true">Checkout not connected yet</button>
+      <p class="buy-note" hidden>Payments are not wired up yet. Nothing will be charged.</p>
+      <p class="disclaimer">T776 Rental Books is a bookkeeping aid. It is not tax, legal, or accounting advice. Check your categories and allocations with a qualified accountant.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>The chore this replaces</h2>
+    <p>You track rent and expenses in a spreadsheet you built yourself. It holds up during the year, and then the year ends and you spend a weekend folding it into the lines Form T776 asks for. This workbook keeps those lines from the first entry onward, so the summary is finished before you file.</p>
+  </section>
+
+  <section>
+    <h2>What is in the workbook</h2>
+    <p>Eight tabs. Here is each one and what it does.</p>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th scope="col">Tab</th><th scope="col">What it does</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="tab-name">START HERE</td><td>The setup order, and what each tab does.</td></tr>
+          <tr><td class="tab-name">Setup</td><td>One row per property, plus a square-footage calculator that works out your rental percentage for a home you partly rent out.</td></tr>
+          <tr><td class="tab-name">Rent Ledger</td><td>Every rent payment, per property and unit, with a monthly grid that totals itself.</td></tr>
+          <tr><td class="tab-name">Expenses</td><td>Every expense, tagged to a T776 line from a drop-down, with a receipt-filed column and a repair-or-capital flag.</td></tr>
+          <tr><td class="tab-name">Mileage</td><td>A CRA-format driving log that applies the per-kilometre rate automatically.</td></tr>
+          <tr><td class="tab-name">T776 Summary</td><td>Gross rents and every expense line, totalled per property and per T776 line number, ready to copy onto Form T776.</td></tr>
+          <tr><td class="tab-name">Capital &amp; CCA</td><td>The list of capital items to hand your accountant.</td></tr>
+          <tr><td class="tab-name">T776 Codes</td><td>The expense line reference.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">Works in Excel on Windows and Mac. In Google Sheets, upload the file and open it. There is no subscription, no account and no app.</p>
+  </section>
+
+  <section>
+    <h2>The free T776 Field Guide</h2>
+    <p>The Field Guide is a free PDF reference guide to Form T776, and it is separate from the workbook. The paid product is the Excel workbook itself, with the eight tabs above.</p>
+    <p><a class="dl-link" href="T776-Field-Guide.pdf">Download the free T776 Field Guide (PDF)</a></p>
+    <p class="tbl-note">File: <span class="tab-name">T776-Field-Guide.pdf</span></p>
+  </section>
+
+  <section>
+    <h2>The T776 lines this workbook uses</h2>
+    <p>The Expenses tab drop-down is built from the expense lines below, so nothing gets filed under a made-up category.</p>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th scope="col">Line</th><th scope="col">Expense line</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="code">8521</td><td>Advertising</td></tr>
+          <tr><td class="code">8690</td><td>Insurance</td></tr>
+          <tr><td class="code">8710</td><td>Interest and bank charges</td></tr>
+          <tr><td class="code">8810</td><td>Office expenses</td></tr>
+          <tr><td class="code">8860</td><td>Professional fees (legal and accounting)</td></tr>
+          <tr><td class="code">8871</td><td>Management and administration fees</td></tr>
+          <tr><td class="code">8960</td><td>Repairs and maintenance</td></tr>
+          <tr><td class="code">9060</td><td>Salaries, wages and benefits</td></tr>
+          <tr><td class="code">9180</td><td>Property taxes</td></tr>
+          <tr><td class="code">9200</td><td>Travel</td></tr>
+          <tr><td class="code">9220</td><td>Utilities</td></tr>
+          <tr><td class="code">9281</td><td>Motor vehicle expenses</td></tr>
+          <tr><td class="code">9270</td><td>Other expenses</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Also on Form T776</h3>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th scope="col">Line</th><th scope="col">Income and total line</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="code">8141</td><td>Gross rents</td></tr>
+          <tr><td class="code">8299</td><td>Total gross rental income</td></tr>
+          <tr><td class="code">9949</td><td>Personal portion</td></tr>
+          <tr><td class="code">9369</td><td>Net income (loss) before adjustments</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>What it does not do</h2>
+    <ul>
+      <li>It does not file your taxes. You enter the totals on Form T776 yourself.</li>
+      <li>It does not calculate capital cost allowance. It lists your capital items so your accountant can.</li>
+      <li>It is built for long-term residential rentals. Short-term and Airbnb books do not fit it.</li>
+      <li>It does not connect to your bank. You type the numbers in.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Buy the workbook</h2>
+    <p class="price">$<span data-price>29</span> <span class="unit">CAD, one-time. One .xlsx file.</span></p>
+    <div class="buy-block" data-buy-slot>
+      <button type="button" class="buy buy--inert" aria-disabled="true">Checkout not connected yet</button>
+      <p class="buy-note" hidden>Payments are not wired up yet. Nothing will be charged.</p>
+      <p class="disclaimer">T776 Rental Books is a bookkeeping aid. It is not tax, legal, or accounting advice. Check your categories and allocations with a qualified accountant.</p>
+    </div>
+  </section>
+
+  <div class="foot">
+    <p>T776 Rental Books. Not affiliated with the Canada Revenue Agency.</p>
+  </div>
+
+</div>
+
+<script src="config.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var url = (typeof CHECKOUT_URL === "string") ? CHECKOUT_URL.trim() : "";
+  var price = (typeof PRICE_CAD === "number" && isFinite(PRICE_CAD)) ? PRICE_CAD : 29;
+
+  var priceEls = document.querySelectorAll("[data-price]");
+  for (var i = 0; i < priceEls.length; i++) {
+    priceEls[i].textContent = String(price);
+  }
+
+  var slots = document.querySelectorAll("[data-buy-slot]");
+  for (var j = 0; j < slots.length; j++) {
+    (function (slot) {
+      var btn = slot.querySelector(".buy");
+      var note = slot.querySelector(".buy-note");
+
+      if (url) {
+        var link = document.createElement("a");
+        link.className = "buy buy--live";
+        link.href = url;
+        link.target = "_blank";
+        link.rel = "noopener";
+        link.textContent = "Buy the workbook \u2014 $" + price + " CAD";
+        if (btn && btn.parentNode) {
+          btn.parentNode.replaceChild(link, btn);
+        }
+        if (note) { note.hidden = true; }
+      } else if (btn) {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (note) { note.hidden = false; }
+        });
+      }
+    })(slots[j]);
+  }
+})();
+</script>
+</body>
+</html>
