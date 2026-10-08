@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maxhemmerich.github.io/t776-rental-books/sitemap.xml
