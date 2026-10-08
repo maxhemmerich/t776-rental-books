@@ -14,7 +14,7 @@ This repository holds the public page and the free reference guide.
 | File | What it is |
 |---|---|
 | `index.html` | The page. Plain HTML, no build step, no dependencies. |
-| `config.js` | One setting: the checkout link. Empty until a payment platform is connected. |
+| `config.js` | One setting: the checkout link. It points at the live Gumroad listing. |
 | `T776-Field-Guide.pdf` | The free reference guide. Real content, downloadable. |
 
 ## The paid product
@@ -28,7 +28,8 @@ rents and every expense line per property and per CRA line number, so the figure
 onto Form T776 or handed to an accountant. Expenses are flagged Repair or Capital; capital rows
 are kept out of the current-year summary and listed separately.
 
-The workbook is not in this repository — it is the paid file. It is delivered after purchase.
+The workbook is not in this repository — it is the paid file, delivered by Gumroad after purchase.
+Buy it at https://maxhemmerich.gumroad.com/l/emzclv — $29 CAD, one-time.
 
 ## What the workbook does not do
 
