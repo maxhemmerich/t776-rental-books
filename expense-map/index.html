@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Form T776 expense lines and codes - what belongs on each line | T776 Rental Books</title>
+<meta name="description" content="Every expense line on Form T776 with its CRA code number and a plain-English note on what belongs on it, plus the income and total lines. The line map from the free T776 Field Guide, for landlords keeping rental books in a spreadsheet. A bookkeeping reference, not tax advice.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://maxhemmerich.github.io/t776-rental-books/expense-map/">
+<link rel="alternate" type="application/pdf" href="../T776-Field-Guide.pdf" title="The Canadian Small-Landlord T776 Field Guide (PDF)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="T776 Rental Books">
+<meta property="og:title" content="Every Form T776 expense line, with its code number">
+<meta property="og:description" content="Every expense line on Form T776 with its CRA code number and a plain-English note on what belongs on it, plus the income and total lines. The line map from the free T776 Field Guide, for landlords keeping rental books in a spreadsheet. A bookkeeping reference, not tax advice.">
+<meta property="og:url" content="https://maxhemmerich.github.io/t776-rental-books/expense-map/">
+<meta property="og:image" content="https://maxhemmerich.github.io/t776-rental-books/summary-tab-example.png">
+<meta property="og:image:alt" content="The T776 Summary tab of the T776 Rental Books workbook: gross rents and every T776 expense line totalled per property and per CRA line number.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Every Form T776 expense line, with its code number">
+<meta name="twitter:description" content="Every expense line on Form T776 with its CRA code number and a plain-English note on what belongs on it, plus the income and total lines. The line map from the free T776 Field Guide, for landlords keeping rental books in a spreadsheet. A bookkeeping reference, not tax advice.">
+<meta name="twitter:image" content="https://maxhemmerich.github.io/t776-rental-books/summary-tab-example.png">
+<style>
+  :root{
+    --paper:#f7f2e7;
+    --ink:#181712;
+    --ink-soft:#4c463a;
+    --rule:#d8cdb6;
+    --accent:#1b4d3e;
+    --accent-dark:#123227;
+    --navy:#1f3b57;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+       font-size:17px;line-height:1.55;text-align:left}
+  .wrap{max-width:44rem;margin:0 auto;padding:30px 20px 60px}
+  p{margin:0 0 16px;max-width:38rem}
+  a{color:var(--accent)}
+  a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .kicker{font-family:var(--mono);font-size:13px;letter-spacing:.12em;
+          text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+  h1{font-family:var(--serif);font-weight:700;font-size:clamp(27px,6.6vw,40px);
+     line-height:1.14;letter-spacing:-.01em;margin:0 0 14px;max-width:34rem}
+  h2{font-family:var(--serif);font-weight:700;font-size:clamp(21px,4.6vw,27px);
+     line-height:1.2;margin:0 0 14px;max-width:34rem}
+  h2 .num{font-family:var(--mono);font-size:.62em;color:var(--accent);
+          vertical-align:.18em;margin-right:.4em}
+  h3{font-size:16px;font-weight:700;letter-spacing:.02em;margin:26px 0 10px}
+  section{margin-top:46px;border-top:1px solid var(--rule);padding-top:26px}
+  section:first-of-type{margin-top:0;border-top:0;padding-top:0}
+  .lede{font-size:19px;color:var(--ink-soft);max-width:36rem}
+  .meta{font-family:var(--mono);font-size:14px;color:var(--ink-soft);
+        margin:0 0 18px;padding:0;display:grid;grid-template-columns:auto 1fr;
+        gap:2px 14px;max-width:26rem}
+  .meta dt{color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+  .meta dd{margin:0}
+  .cover-note{font-size:17px;color:var(--ink-soft);max-width:36rem}
+  .actions{margin:20px 0 6px;padding:0;display:flex;flex-wrap:wrap;gap:12px}
+  .cta,.dl{display:inline-block;min-height:48px;padding:14px 22px;font-weight:600;
+           font-size:17px;line-height:1.2;text-decoration:none;border-radius:3px}
+  .cta{background:var(--accent);color:#f7f2e7;border:1px solid var(--accent)}
+  .cta:hover,.cta:focus{background:var(--accent-dark)}
+  .dl{border:1px solid var(--accent);color:var(--accent);background:transparent}
+  .dl:hover,.dl:focus{background:#efe8d8}
+  .panel{margin:26px 0;padding:12px 14px;background:#eef2f6;
+         border:1px solid var(--navy);border-left-width:4px}
+  .panel p{margin:0;font-size:15px}
+  .note{font-size:16px;font-style:italic;color:var(--ink-soft);max-width:36rem}
+  nav.toc{margin:34px 0 0;padding:16px 18px;border:1px solid var(--rule);
+          background:#fdfaf3}
+  nav.toc h2{font-family:var(--sans);font-size:14px;letter-spacing:.06em;
+             text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px}
+  nav.toc ol{margin:0;padding-left:1.3rem}
+  nav.toc li{margin:0 0 6px;font-size:16px}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0 6px}
+  table{width:100%;max-width:44rem;border-collapse:collapse;font-size:16px;
+        border:1px solid var(--rule)}
+  th{text-align:left;font-size:13px;letter-spacing:.05em;text-transform:uppercase;
+     color:#fff;background:var(--navy);font-weight:700;padding:8px 10px;
+     vertical-align:top}
+  td{text-align:left;vertical-align:top;padding:9px 10px;
+     border-top:1px solid var(--rule)}
+  td .code{font-family:var(--mono);white-space:nowrap}
+  td .r{display:block;text-align:right;font-variant-numeric:tabular-nums}
+  .cbox{display:inline-block;width:13px;height:13px;border:1px solid #44546a;
+        vertical-align:-1px}
+  ul{margin:0 0 16px;padding-left:1.15rem;max-width:36rem}
+  ol{margin:0 0 16px;padding-left:1.3rem;max-width:38rem}
+  li{margin:0 0 9px}
+  hr{border:0;border-top:1px solid var(--rule);margin:18px 0}
+  .foot{margin-top:52px;border-top:1px solid var(--rule);padding-top:18px;
+        font-size:16px;color:var(--ink-soft)}
+  .foot p{max-width:38rem}
+  .foot ul{padding-left:1.15rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <p class="kicker">T776 Rental Books &mdash; free guide</p>
+  <h1>Every Form T776 expense line, with its code number</h1>
+  <p class="lede">This is the expense-line map from the free T776 Field Guide: the CRA code, the line name as the form prints it, and a plain-English note on what belongs on that line. If you keep your rental books in a spreadsheet, these codes are your categories - pick them from this list instead of inventing your own.</p>
+  <p class="note">The tables below are the guide's own line map, rendered from the same source the PDF is built from. The rest of the guide - repairs or capital, renting part of your home, mileage, the records to keep, the pre-filing checklist and a glossary - is in the free guide and on its page.</p>
+  <p class="actions">
+    <a class="cta" href="https://maxhemmerich.github.io/t776-rental-books/">See T776 Rental Books &mdash; $29 CAD</a>
+    <a class="dl" href="../field-guide/">Read the whole free guide</a>
+    <a class="dl" href="../T776-Field-Guide.pdf">Download it as a PDF</a>
+  </p>
+</header>
+
+<section id="s2">
+<h2><span class="num">2</span> The T776 expense line map</h2>
+<p>These are the expense lines on Form T776, with the code number as it appears on the form. The codes and line names below are used exactly as CRA prints them. The description says, in plain English, what belongs on each line.</p>
+<div class="scroll">
+<table>
+<thead><tr>
+<th scope="col">Code</th>
+<th scope="col">Line name</th>
+<th scope="col">What belongs on it</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><span class="code">8521</span></td>
+<td>Advertising</td>
+<td>The cost of advertising a rental - online listings, newspaper ads, a yard sign, or a posting fee. Claim it to the extent it relates to the rental.</td>
+</tr>
+<tr>
+<td><span class="code">8690</span></td>
+<td>Insurance</td>
+<td>Premiums for fire, liability and contents insurance covering the rental property for the period it was available to rent. Your own homeowner policy on your residence stays personal.</td>
+</tr>
+<tr>
+<td><span class="code">8710</span></td>
+<td>Interest and bank charges</td>
+<td>Mortgage interest (the interest part only, never the principal), interest on money borrowed to buy or improve the rental property, and bank service charges on the account you run the rental through.</td>
+</tr>
+<tr>
+<td><span class="code">8810</span></td>
+<td>Office expenses</td>
+<td>Small running costs of administering the rental: stationery, postage, printing, and the rental portion of a phone or internet line you use to manage it.</td>
+</tr>
+<tr>
+<td><span class="code">8860</span></td>
+<td>Professional fees (includes legal and accounting fees)</td>
+<td>Fees paid for the rental itself - legal work on a lease or a tenancy dispute, accounting and bookkeeping fees, appraisals. Legal fees that are part of buying the property are a capital cost, not this line.</td>
+</tr>
+<tr>
+<td><span class="code">8871</span></td>
+<td>Management and administration fees</td>
+<td>Amounts paid to a property manager, letting agent or rental platform to manage the unit, collect rent or find tenants.</td>
+</tr>
+<tr>
+<td><span class="code">8960</span></td>
+<td>Repairs and maintenance</td>
+<td>Labour and materials that restore the property to its previous condition - fixing something broken, patching, repainting between tenants. Work that improves the property beyond what it was is capital, not this line.</td>
+</tr>
+<tr>
+<td><span class="code">9060</span></td>
+<td>Salaries, wages and benefits (including employer's contributions)</td>
+<td>Pay to people who work in the rental operation, together with the employer's share of CPP and EI and any source deductions you remit for them.</td>
+</tr>
+<tr>
+<td><span class="code">9180</span></td>
+<td>Property taxes</td>
+<td>Municipal and school property tax on the rental property for the period it was rented, including the rental share of a property that is only partly rented.</td>
+</tr>
+<tr>
+<td><span class="code">9200</span></td>
+<td>Travel</td>
+<td>Travel to and from the rental property for rental purposes where you are not using a vehicle claimed under line 9281 - airfare, taxi or transit. Do not claim both a mileage rate and the actual cost of the same trip.</td>
+</tr>
+<tr>
+<td><span class="code">9220</span></td>
+<td>Utilities</td>
+<td>Heat, electricity and water for the rental property, including the rental share of utilities you pay on a building you also live in.</td>
+</tr>
+<tr>
+<td><span class="code">9281</span></td>
+<td>Motor vehicle expenses (not including capital cost allowance)</td>
+<td>Kilometres driven for rental purposes multiplied by CRA's prescribed rate, supported by a mileage log. Capital cost allowance on the vehicle is claimed separately and is not part of this line.</td>
+</tr>
+<tr>
+<td><span class="code">9270</span></td>
+<td>Other expenses</td>
+<td>Legitimate rental costs that do not fit any line above - for example a bookkeeping software subscription used for the rental, or small one-off costs. If you are unsure whether something belongs here, ask an accountant.</td>
+</tr>
+</tbody></table></div>
+<h3>Income and total lines</h3>
+<p>These are the lines that carry income in and the totals out. They are not expenses, but they are the lines most people read last and misread first.</p>
+<div class="scroll">
+<table>
+<thead><tr>
+<th scope="col">Code</th>
+<th scope="col">Line name</th>
+<th scope="col">What belongs on it</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><span class="code">8141</span></td>
+<td>Gross rents</td>
+<td>The total rent you collected for the year on the property.</td>
+</tr>
+<tr>
+<td><span class="code">8230</span></td>
+<td>Other income</td>
+<td>Other rental-related income, such as fees you charge tenants for parking, laundry or extra services.</td>
+</tr>
+<tr>
+<td><span class="code">8299</span></td>
+<td>Total gross rental income</td>
+<td>Line 8141 plus line 8230 - all the rental income before any expenses.</td>
+</tr>
+<tr>
+<td><span class="code">Amount A</span></td>
+<td>Total expenses</td>
+<td>Your total deductible expenses after the personal portion has been removed. This is the figure you deduct.</td>
+</tr>
+<tr>
+<td><span class="code">9949</span></td>
+<td>Total for personal portion</td>
+<td>The expenses that relate to your own use of a partly rented property. They are reported here and are not deducted.</td>
+</tr>
+<tr>
+<td><span class="code">9369</span></td>
+<td>Net income (loss) before adjustments</td>
+<td>Line 8299 minus amount A. This is the rental figure that flows into your T1 personal return.</td>
+</tr>
+</tbody></table></div>
+</section>
+<div class="foot">
+  <p><b>T776 Rental Books</b> &mdash; the paid workbook is a Microsoft Excel file, and its
+  Expenses tab drop-down is built from this same line list: <a href="https://maxhemmerich.github.io/t776-rental-books/">https://maxhemmerich.github.io/t776-rental-books/</a></p>
+  <p>The whole free guide, including this line map, is on its own page:
+  <a href="../field-guide/">read it as a web page</a>
+  &mdash; or as a PDF: <a href="../T776-Field-Guide.pdf">T776-Field-Guide.pdf</a></p>
+  <p>T776 Rental Books. Not affiliated with the Canada Revenue Agency.</p>
+</div>
+
+</div>
+</body>
+</html>
