@@ -172,7 +172,7 @@
     <p class="price">$<span data-price>29</span> <span class="unit">CAD, one-time. One .xlsx file.</span></p>
 
     <div class="buy-block" data-buy-slot>
-      <button type="button" class="buy buy--inert" aria-disabled="true">Checkout not connected yet</button>
+      <a class="buy buy--live" href="https://maxhemmerich.gumroad.com/l/emzclv" target="_blank" rel="noopener">Buy the workbook — $29 CAD</a>
       <p class="buy-note" hidden>Payments are not wired up yet. Nothing will be charged.</p>
       <p class="disclaimer">T776 Rental Books is a bookkeeping aid. It is not tax, legal, or accounting advice. Check your categories and allocations with a qualified accountant.</p>
     </div>
@@ -274,7 +274,7 @@
     <h2>Buy the workbook</h2>
     <p class="price">$<span data-price>29</span> <span class="unit">CAD, one-time. One .xlsx file.</span></p>
     <div class="buy-block" data-buy-slot>
-      <button type="button" class="buy buy--inert" aria-disabled="true">Checkout not connected yet</button>
+      <a class="buy buy--live" href="https://maxhemmerich.gumroad.com/l/emzclv" target="_blank" rel="noopener">Buy the workbook — $29 CAD</a>
       <p class="buy-note" hidden>Payments are not wired up yet. Nothing will be charged.</p>
       <p class="disclaimer">T776 Rental Books is a bookkeeping aid. It is not tax, legal, or accounting advice. Check your categories and allocations with a qualified accountant.</p>
     </div>
@@ -291,6 +291,11 @@
 (function () {
   "use strict";
 
+  // The static HTML ships the live buy anchor so the door works with
+  // JavaScript off. When config.js loads, this script re-renders each buy
+  // slot from CHECKOUT_URL: a live link when it is set, an inert "
+  // Checkout not connected yet" button when it is empty. Keep the static
+  // href and config.js in sync; the script is the source of truth at runtime.
   var url = (typeof CHECKOUT_URL === "string") ? CHECKOUT_URL.trim() : "";
   var price = (typeof PRICE_CAD === "number" && isFinite(PRICE_CAD)) ? PRICE_CAD : 29;
 
@@ -302,25 +307,29 @@
   var slots = document.querySelectorAll("[data-buy-slot]");
   for (var j = 0; j < slots.length; j++) {
     (function (slot) {
-      var btn = slot.querySelector(".buy");
+      var control = slot.querySelector(".buy");
       var note = slot.querySelector(".buy-note");
+      var replacement;
 
       if (url) {
-        var link = document.createElement("a");
-        link.className = "buy buy--live";
-        link.href = url;
-        link.target = "_blank";
-        link.rel = "noopener";
-        link.textContent = "Buy the workbook \u2014 $" + price + " CAD";
-        if (btn && btn.parentNode) {
-          btn.parentNode.replaceChild(link, btn);
-        }
+        replacement = document.createElement("a");
+        replacement.className = "buy buy--live";
+        replacement.href = url;
+        replacement.target = "_blank";
+        replacement.rel = "noopener";
+        replacement.textContent = "Buy the workbook \u2014 $" + price + " CAD";
         if (note) { note.hidden = true; }
-      } else if (btn) {
-        btn.addEventListener("click", function (e) {
-          e.preventDefault();
-          if (note) { note.hidden = false; }
-        });
+      } else {
+        replacement = document.createElement("button");
+        replacement.type = "button";
+        replacement.className = "buy buy--inert";
+        replacement.setAttribute("aria-disabled", "true");
+        replacement.textContent = "Checkout not connected yet";
+        if (note) { note.hidden = false; }
+      }
+
+      if (control && control.parentNode) {
+        control.parentNode.replaceChild(replacement, control);
       }
     })(slots[j]);
   }
