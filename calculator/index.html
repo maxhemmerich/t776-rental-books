@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free T776 calculator - rental income, expenses and the home-cost split - T776 Rental Books</title>
+<meta name="description" content="Work out Form T776 numbers in your browser: gross rents against expenses, the rental share of shared home costs, and the repair-or-capital split. Free, no account, nothing sent anywhere. It is a bookkeeping aid, not tax advice.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://maxhemmerich.github.io/t776-rental-books/calculator/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="T776 Rental Books">
+<meta property="og:title" content="Free T776 calculator - rental income, expenses and the home-cost split - T776 Rental Books">
+<meta property="og:description" content="Work out Form T776 numbers in your browser: gross rents against expenses, the rental share of shared home costs, and the repair-or-capital split. Free, no account, nothing sent anywhere. It is a bookkeeping aid, not tax advice.">
+<meta property="og:url" content="https://maxhemmerich.github.io/t776-rental-books/calculator/">
+<meta property="og:image" content="https://maxhemmerich.github.io/t776-rental-books/summary-tab-example.png">
+<meta property="og:image:alt" content="The T776 Summary tab of the T776 Rental Books workbook: gross rents and every T776 expense line totalled per property and per CRA line number.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free T776 calculator - rental income, expenses and the home-cost split - T776 Rental Books">
+<meta name="twitter:description" content="Work out Form T776 numbers in your browser: gross rents against expenses, the rental share of shared home costs, and the repair-or-capital split. Free, no account, nothing sent anywhere. It is a bookkeeping aid, not tax advice.">
+<meta name="twitter:image" content="https://maxhemmerich.github.io/t776-rental-books/summary-tab-example.png">
+<style>
+  :root{
+    --paper:#f7f2e7;
+    --ink:#181712;
+    --ink-soft:#4c463a;
+    --rule:#d8cdb6;
+    --accent:#1b4d3e;
+    --accent-dark:#123227;
+    --navy:#1f3b57;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+       font-size:17px;line-height:1.55;text-align:left}
+  .wrap{max-width:44rem;margin:0 auto;padding:30px 20px 60px}
+  p{margin:0 0 16px;max-width:38rem}
+  a{color:var(--accent)}
+  a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .kicker{font-family:var(--mono);font-size:13px;letter-spacing:.12em;
+          text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+  h1{font-family:var(--serif);font-weight:700;font-size:clamp(27px,6.6vw,40px);
+     line-height:1.14;letter-spacing:-.01em;margin:0 0 14px;max-width:34rem}
+  h2{font-family:var(--serif);font-weight:700;font-size:clamp(21px,4.6vw,27px);
+     line-height:1.2;margin:0 0 14px;max-width:34rem}
+  h2 .num{font-family:var(--mono);font-size:.62em;color:var(--accent);
+          vertical-align:.18em;margin-right:.4em}
+  h3{font-size:16px;font-weight:700;letter-spacing:.02em;margin:26px 0 10px}
+  section{margin-top:46px;border-top:1px solid var(--rule);padding-top:26px}
+  section:first-of-type{margin-top:0;border-top:0;padding-top:0}
+  .lede{font-size:19px;color:var(--ink-soft);max-width:36rem}
+  .meta{font-family:var(--mono);font-size:14px;color:var(--ink-soft);
+        margin:0 0 18px;padding:0;display:grid;grid-template-columns:auto 1fr;
+        gap:2px 14px;max-width:26rem}
+  .meta dt{color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+  .meta dd{margin:0}
+  .cover-note{font-size:17px;color:var(--ink-soft);max-width:36rem}
+  .actions{margin:20px 0 6px;padding:0;display:flex;flex-wrap:wrap;gap:12px}
+  .cta,.dl{display:inline-block;min-height:48px;padding:14px 22px;font-weight:600;
+           font-size:17px;line-height:1.2;text-decoration:none;border-radius:3px}
+  .cta{background:var(--accent);color:#f7f2e7;border:1px solid var(--accent)}
+  .cta:hover,.cta:focus{background:var(--accent-dark)}
+  .dl{border:1px solid var(--accent);color:var(--accent);background:transparent}
+  .dl:hover,.dl:focus{background:#efe8d8}
+  .panel{margin:26px 0;padding:12px 14px;background:#eef2f6;
+         border:1px solid var(--navy);border-left-width:4px}
+  .panel p{margin:0;font-size:15px}
+  .note{font-size:16px;font-style:italic;color:var(--ink-soft);max-width:36rem}
+  nav.toc{margin:34px 0 0;padding:16px 18px;border:1px solid var(--rule);
+          background:#fdfaf3}
+  nav.toc h2{font-family:var(--sans);font-size:14px;letter-spacing:.06em;
+             text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px}
+  nav.toc ol{margin:0;padding-left:1.3rem}
+  nav.toc li{margin:0 0 6px;font-size:16px}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0 6px}
+  table{width:100%;max-width:44rem;border-collapse:collapse;font-size:16px;
+        border:1px solid var(--rule)}
+  th{text-align:left;font-size:13px;letter-spacing:.05em;text-transform:uppercase;
+     color:#fff;background:var(--navy);font-weight:700;padding:8px 10px;
+     vertical-align:top}
+  td{text-align:left;vertical-align:top;padding:9px 10px;
+     border-top:1px solid var(--rule)}
+  td .code{font-family:var(--mono);white-space:nowrap}
+  td .r{display:block;text-align:right;font-variant-numeric:tabular-nums}
+  .cbox{display:inline-block;width:13px;height:13px;border:1px solid #44546a;
+        vertical-align:-1px}
+  ul{margin:0 0 16px;padding-left:1.15rem;max-width:36rem}
+  ol{margin:0 0 16px;padding-left:1.3rem;max-width:38rem}
+  li{margin:0 0 9px}
+  hr{border:0;border-top:1px solid var(--rule);margin:18px 0}
+  .foot{margin-top:52px;border-top:1px solid var(--rule);padding-top:18px;
+        font-size:16px;color:var(--ink-soft)}
+  .foot p{max-width:38rem}
+  .foot ul{padding-left:1.15rem}
+
+  fieldset{border:1px solid var(--rule);background:#fdfaf3;margin:22px 0 0;
+           padding:14px 16px 10px}
+  legend{font-family:var(--sans);font-size:14px;letter-spacing:.05em;
+         text-transform:uppercase;color:var(--accent);font-weight:700;
+         padding:0 6px}
+  .grid{display:grid;grid-template-columns:1fr;gap:2px}
+  .field{display:grid;grid-template-columns:1fr 9.5rem;gap:10px;align-items:center;
+         border-bottom:1px solid #ece3cd;padding:7px 0}
+  .field:last-child{border-bottom:0}
+  .field label{font-size:16px}
+  .field .code{font-family:var(--mono);white-space:nowrap;
+               display:inline-block;min-width:3.6em}
+  .field input{width:100%;min-height:40px;padding:8px 10px;font-size:16px;
+               font-family:var(--mono);text-align:right;color:var(--ink);
+               background:#fff;border:1px solid #b3a689;border-radius:3px;
+               font-variant-numeric:tabular-nums}
+  .field input:focus-visible{outline:3px solid var(--accent);outline-offset:1px}
+  .split{margin:12px 0 4px;padding:10px 12px;background:#eef2f6;
+         border-left:4px solid var(--navy);font-size:16px}
+  .split b{font-variant-numeric:tabular-nums}
+  .outrow td{font-variant-numeric:tabular-nums}
+  .outrow b{font-variant-numeric:tabular-nums}
+  .total td{background:#eaf3ec;font-weight:700}
+  .capital td{background:#fbf5ee}
+  .rr{display:block;text-align:right;font-variant-numeric:tabular-nums}
+  .buy-block{margin:22px 0 0}
+  .buy-note{margin:12px 0 0;padding:11px 14px;background:#eee4cd;
+            border-left:4px solid var(--accent);font-size:16px;max-width:34rem}
+  .cta--inert{background:transparent;color:var(--ink-soft);
+              border:1px dashed #b3a689;cursor:not-allowed}
+  button.cta{font-family:var(--sans);font-size:17px;cursor:pointer}
+</style>
+<!-- faq-jsonld:start -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does this calculator send my numbers anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The arithmetic runs in your browser. Nothing you type is sent anywhere, and there is no account, no sign-up and no cookie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do the line numbers come from?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The line numbers and names below are the same T776 expense lines the free Field Guide prints, used exactly as CRA prints them on the form."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does it cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This page is free. It works out the same arithmetic the guide works through in section 4: gross rents, the rental share of shared home costs, and the repair-or-capital split."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it file my taxes or give tax advice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This guide is a bookkeeping aid. It is not tax, legal, or accounting advice. Check your categories and allocations with a qualified accountant."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this the same as the paid workbook?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The paid product is the Excel workbook itself; this page is the free arithmetic behind it."
+      }
+    }
+  ]
+}
+</script>
+<!-- faq-jsonld:end -->
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="kicker">T776 Rental Books &mdash; free calculator</p>
+    <h1>The T776 numbers, worked in your browser</h1>
+    <p class="lede">Type your own rent and expenses and watch the summary total
+    itself: gross rents against expenses, the rental share of the costs your
+    home and the suite share, and the repair-or-capital split. The arithmetic runs in your browser. Nothing you type is sent anywhere, and there is no account, no sign-up and no cookie.</p>
+    <dl class="meta">
+      <dt>Format</dt><dd>Web page, runs in your browser</dd>
+      <dt>Price</dt><dd>Free</dd>
+    </dl>
+    <div class="buy-block" data-buy-slot>
+      <p class="actions">
+        <a class="cta" href="https://maxhemmerich.gumroad.com/l/emzclv" target="_blank" rel="noopener">Buy the workbook &mdash; $29 CAD</a>
+        <a class="dl" href="../T776-Field-Guide.pdf">Download the free Field Guide (PDF)</a>
+      </p>
+      <p class="buy-note">Buying takes you to the Gumroad listing to pay CA$29. Your .xlsx downloads there the moment the purchase goes through &mdash; nothing else is charged.</p>
+    </div>
+    <p class="note">This page is an aid to adding up the lines on Form T776. It
+    is not the workbook, and it is not tax advice - the guide's own disclaimer
+    is repeated at the foot of this page.</p>
+  </header>
+  <section>
+    <h2>First, the guide's worked example</h2>
+    <p>Before you type anything, here is the worked example the free Field Guide
+    prints in section 4. The line numbers and names below are the same T776 expense lines the free Field Guide prints, used exactly as CRA prints them on the form. The calculator below opens with
+    these very numbers already in it, so you can watch it total, then change
+    them to your own.</p>
+    <p>The home is 2,000 square feet. The basement suite is 800 square feet.
+    800 &divide; 2,000 = 0.40, so the rental share is 40% and 60% stays personal.
+    Whole-home costs for the year: mortgage interest $12,000, property taxes
+    $4,500, insurance $1,500, utilities $3,000 &mdash; together $21,000. At 40%
+    the rental share is $8,400 and the personal 60% is $12,600.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th scope="col">Line</th><th scope="col">Item</th><th scope="col">Full-year amount</th><th scope="col">Share claimed</th><th scope="col">Amount on T776</th></tr></thead>
+        <tbody>
+          <tr class="outrow"><td class="code">8141</td><td>Gross rents</td><td class="rr">-</td><td>-</td><td class="rr">$18,000.00</td></tr>
+          <tr class="outrow"><td class="code">8710</td><td>Mortgage interest</td><td class="rr">$12,000.00</td><td>40%</td><td class="rr">$4,800.00</td></tr>
+          <tr class="outrow"><td class="code">9180</td><td>Property taxes</td><td class="rr">$4,500.00</td><td>40%</td><td class="rr">$1,800.00</td></tr>
+          <tr class="outrow"><td class="code">8690</td><td>Insurance</td><td class="rr">$1,500.00</td><td>40%</td><td class="rr">$600.00</td></tr>
+          <tr class="outrow"><td class="code">9220</td><td>Utilities</td><td class="rr">$3,000.00</td><td>40%</td><td class="rr">$1,200.00</td></tr>
+          <tr class="outrow"><td class="code">8960</td><td>Suite repair (suite only)</td><td class="rr">$900.00</td><td>100%</td><td class="rr">$900.00</td></tr>
+          <tr class="outrow"><td class="code">8521</td><td>Advertising (rental only)</td><td class="rr">$150.00</td><td>100%</td><td class="rr">$150.00</td></tr>
+          <tr class="outrow total"><td class="code">Amount A</td><td>Total expenses</td><td class="rr">-</td><td>-</td><td class="rr">$9,450.00</td></tr>
+          <tr class="outrow"><td class="code">9949</td><td>Personal portion (reported, not deducted)</td><td class="rr">-</td><td>60%</td><td class="rr">$12,600.00</td></tr>
+          <tr class="outrow total"><td class="code">9369</td><td>Net income before adjustments</td><td class="rr">-</td><td>-</td><td class="rr">$8,550.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Every figure in that table is the guide's own arithmetic,
+    computed in the script that built the guide. Nothing on this page is a
+    claimed saving or an estimate.</p>
+  </section>
+
+  <section>
+    <h2>Repairs or capital &mdash; the line that trips people up</h2>
+    <p><b>Does the work restore the property to its previous condition, or does
+    it improve it beyond what it was?</b> If it restores the property, it is a
+    current expense and you deduct it this year, on line 8960 Repairs and
+    maintenance. If it improves the property beyond what it was, it is a capital
+    expense: it joins the cost of the property instead of being deducted now,
+    and it does not go into this year's total.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th scope="col">Current expense &mdash; repairs (deduct this year)</th>
+        <th scope="col">Capital expense &mdash; improvements (add to cost)</th></tr></thead>
+        <tbody>
+          <tr><td>Fixing a broken furnace so it works again</td><td>Replacing the entire furnace with a better model</td></tr>
+          <tr><td>Patching drywall and repainting the patch</td><td>A new roof</td></tr>
+          <tr><td>Replacing a single leaking faucet</td><td>A kitchen renovation</td></tr>
+          <tr><td>Repainting between tenants</td><td>Adding a bathroom</td></tr>
+          <tr><td>Patching a roof leak</td><td>Finishing a basement</td></tr>
+          <tr><td></td><td>Replacing all the windows</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Grey areas go to an accountant. Work that is partly repair and
+    partly improvement, a furnace replaced during a larger renovation, a roof
+    patched twice in one year and then replaced &mdash; do not guess.</p>
+  </section>
+  <section id="calc">
+    <h2>Work your own numbers</h2>
+    <p>This page is free. It works out the same arithmetic the guide works through in section 4: gross rents, the rental share of shared home costs, and the repair-or-capital split. Change any field and every figure below it
+    recalculates as you type. The paid product is the Excel workbook itself; this page is the free arithmetic behind it.</p>
+    <form onsubmit="return false">
+      <fieldset>
+        <legend>Income</legend>
+        <div class="grid">
+        <div class="field">
+          <label for="i8141"><span class="code">8141</span> Gross rents</label>
+          <input type="number" step="0.01" inputmode="decimal" id="i8141" value="18000">
+        </div>
+        <div class="field">
+          <label for="i8230"><span class="code">8230</span> Other income</label>
+          <input type="number" step="0.01" inputmode="decimal" id="i8230" value="0">
+        </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>The home-cost split</legend>
+        <div class="grid">
+        <div class="field">
+          <label for="areaTotal">Home, total area (square feet)</label>
+          <input type="number" step="1" inputmode="numeric" id="areaTotal" value="2000">
+        </div>
+        <div class="field">
+          <label for="areaRental">Rented area (square feet)</label>
+          <input type="number" step="1" inputmode="numeric" id="areaRental" value="800">
+        </div>
+        </div>
+        <p class="split">Rental share of the home: <b id="oShare">&mdash;</b>
+        &nbsp;&middot;&nbsp; personal share: <b id="oSharePersonal">&mdash;</b>
+        &nbsp;&middot;&nbsp; shared costs for the year: <b id="oSharedTotal">&mdash;</b>
+        &nbsp;&middot;&nbsp; rental share claimed: <b id="oRentalShared">&mdash;</b></p>
+        <div class="grid">
+        <div class="field">
+          <label for="i8710"><span class="code">8710</span> Interest and bank charges</label>
+          <input type="number" step="0.01" inputmode="decimal" id="i8710" value="12000">
+        </div>
+        <div class="field">
+          <label for="i9180"><span class="code">9180</span> Property taxes</label>
+          <input type="number" step="0.01" inputmode="decimal" id="i9180" value="4500">
+        </div>
+        <div class="field">
+          <label for="i8690"><span class="code">8690</span> Insurance</label>
+          <input type="number" step="0.01" inputmode="decimal" id="i8690" value="1500">
+        </div>
+        <div class="field">
+          <label for="i9220"><span class="code">9220</span> Utilities</label>
+          <input type="number" step="0.01" inputmode="decimal" id="i9220" value="3000">
+        </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Costs that relate only to the rental unit (claimed at 100%%)</legend>
+        <div class="grid">
+        <div class="field">
+          <label for="i8521"><span class="code">8521</span> Advertising</label>
+          <input type="number" step="0.01" inputmode="decimal" id="i8521" value="150">
+        </div>
+        <div class="field">
+          <label for="i8810"><span class="code">8810</span> Office expenses</label>
+          <input type="number" step="0.01" inputmode="decimal" id="i8810" value="0">
+        </div>
+        <div class="field">
+          <label for="i8860"><span class="code">8860</span> Professional fees (includes legal and accounting fees)</label>
+          <input type="number" step="0.01" inputmode="decimal" id="i8860" value="0">
+        </div>
+        <div class="field">
+          <label for="i8871"><span class="code">8871</span> Management and administration fees</label>
+          <input type="number" step="0.01" inputmode="decimal" id="i8871" value="0">
+        </div>
+        <div class="field">
+          <label for="i8960"><span class="code">8960</span> Repairs and maintenance</label>
+          <input type="number" step="0.01" inputmode="decimal" id="i8960" value="900">
+        </div>
+        <div class="field">
+          <label for="i9060"><span class="code">9060</span> Salaries, wages and benefits (including employer's contributions)</label>
+          <input type="number" step="0.01" inputmode="decimal" id="i9060" value="0">
+        </div>
+        <div class="field">
+          <label for="i9200"><span class="code">9200</span> Travel</label>
+          <input type="number" step="0.01" inputmode="decimal" id="i9200" value="0">
+        </div>
+        <div class="field">
+          <label for="i9281"><span class="code">9281</span> Motor vehicle expenses (not including capital cost allowance)</label>
+          <input type="number" step="0.01" inputmode="decimal" id="i9281" value="0">
+        </div>
+        <div class="field">
+          <label for="i9270"><span class="code">9270</span> Other expenses</label>
+          <input type="number" step="0.01" inputmode="decimal" id="i9270" value="0">
+        </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Capital improvements this year</legend>
+        <div class="grid">
+        <div class="field">
+          <label for="iCapital">Capital this year (not deducted this year)</label>
+          <input type="number" step="0.01" inputmode="decimal" id="iCapital" value="0">
+        </div>
+        </div>
+        <p class="note">An improvement beyond the property's previous condition
+        adds to the cost of the property instead of appearing in this year's
+        total, so it is listed on its own below and left out of amount A.</p>
+      </fieldset>
+    </form>
+
+    <h3>The T776 summary, from your numbers</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th scope="col">Line</th><th scope="col">What it is</th><th scope="col">Amount on T776</th></tr></thead>
+        <tbody>
+          <tr class="outrow "><td class="code">8141</td><td>Gross rents</td><td><span class="rr" id="o8141">&mdash;</span></td></tr>
+          <tr class="outrow "><td class="code">8230</td><td>Other income</td><td><span class="rr" id="o8230">&mdash;</span></td></tr>
+          <tr class="outrow total"><td class="code">8299</td><td>Total gross rental income</td><td><span class="rr" id="o8299">&mdash;</span></td></tr>
+          <tr class="outrow "><td class="code">8521</td><td>Advertising</td><td><span class="rr" id="o8521">&mdash;</span></td></tr>
+          <tr class="outrow "><td class="code">8690</td><td>Insurance</td><td><span class="rr" id="o8690">&mdash;</span></td></tr>
+          <tr class="outrow "><td class="code">8710</td><td>Interest and bank charges</td><td><span class="rr" id="o8710">&mdash;</span></td></tr>
+          <tr class="outrow "><td class="code">8810</td><td>Office expenses</td><td><span class="rr" id="o8810">&mdash;</span></td></tr>
+          <tr class="outrow "><td class="code">8860</td><td>Professional fees (includes legal and accounting fees)</td><td><span class="rr" id="o8860">&mdash;</span></td></tr>
+          <tr class="outrow "><td class="code">8871</td><td>Management and administration fees</td><td><span class="rr" id="o8871">&mdash;</span></td></tr>
+          <tr class="outrow "><td class="code">8960</td><td>Repairs and maintenance</td><td><span class="rr" id="o8960">&mdash;</span></td></tr>
+          <tr class="outrow "><td class="code">9060</td><td>Salaries, wages and benefits (including employer's contributions)</td><td><span class="rr" id="o9060">&mdash;</span></td></tr>
+          <tr class="outrow "><td class="code">9180</td><td>Property taxes</td><td><span class="rr" id="o9180">&mdash;</span></td></tr>
+          <tr class="outrow "><td class="code">9200</td><td>Travel</td><td><span class="rr" id="o9200">&mdash;</span></td></tr>
+          <tr class="outrow "><td class="code">9220</td><td>Utilities</td><td><span class="rr" id="o9220">&mdash;</span></td></tr>
+          <tr class="outrow "><td class="code">9281</td><td>Motor vehicle expenses (not including capital cost allowance)</td><td><span class="rr" id="o9281">&mdash;</span></td></tr>
+          <tr class="outrow "><td class="code">9270</td><td>Other expenses</td><td><span class="rr" id="o9270">&mdash;</span></td></tr>
+          <tr class="outrow total"><td class="code">Amount A</td><td>Total expenses</td><td><span class="rr" id="oAmountA">&mdash;</span></td></tr>
+          <tr class="outrow"><td class="code">9949</td><td>Total for personal portion (reported, not deducted)</td><td><span class="rr" id="o9949">&mdash;</span></td></tr>
+          <tr class="outrow total"><td class="code">9369</td><td>Net income (loss) before adjustments</td><td><span class="rr" id="o9369">&mdash;</span></td></tr>
+          <tr class="outrow capital"><td class="code">Capital</td><td>Capital improvements this year (kept out of the total above)</td><td><span class="rr" id="oCapital">&mdash;</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <noscript><p class="note">This calculator runs in your browser with
+    JavaScript. With JavaScript off the summary above stays empty, but the
+    guide's worked example further up the page is printed in full, and the whole
+    line map is on the expense-map page and in the free guide.</p></noscript>
+  </section>
+  <section>
+    <h2>Buy the workbook</h2>
+    <p>This calculator is free. The paid product is the Excel workbook it works
+    the arithmetic for &mdash; the same lines, filled in through the year so the
+    T776 summary is finished before you file.</p>
+    <div class="buy-block" data-buy-slot>
+      <p class="actions">
+        <a class="cta" href="https://maxhemmerich.gumroad.com/l/emzclv" target="_blank" rel="noopener">Buy the workbook &mdash; $29 CAD</a>
+      </p>
+      <p class="buy-note">Buying takes you to the Gumroad listing to pay CA$29. Your .xlsx downloads there the moment the purchase goes through &mdash; nothing else is charged.</p>
+    </div>
+  </section>
+
+  <!-- faq:start -->
+<section id="faq" aria-labelledby="faq-heading">
+<h2 id="faq-heading">Frequently asked</h2>
+<h3>Does this calculator send my numbers anywhere?</h3>
+<p>The arithmetic runs in your browser. Nothing you type is sent anywhere, and there is no account, no sign-up and no cookie.</p>
+<h3>Where do the line numbers come from?</h3>
+<p>The line numbers and names below are the same T776 expense lines the free Field Guide prints, used exactly as CRA prints them on the form.</p>
+<h3>What does it cost?</h3>
+<p>This page is free. It works out the same arithmetic the guide works through in section 4: gross rents, the rental share of shared home costs, and the repair-or-capital split.</p>
+<h3>Does it file my taxes or give tax advice?</h3>
+<p>This guide is a bookkeeping aid. It is not tax, legal, or accounting advice. Check your categories and allocations with a qualified accountant.</p>
+<h3>Is this the same as the paid workbook?</h3>
+<p>The paid product is the Excel workbook itself; this page is the free arithmetic behind it.</p>
+</section>
+<!-- faq:end -->
+<div class="foot">
+    <p><b>T776 Rental Books</b> &mdash; the paid workbook is a Microsoft Excel
+    file, sold on its own page: <a href="https://maxhemmerich.github.io/t776-rental-books/">https://maxhemmerich.github.io/t776-rental-books/</a></p>
+    <p>This guide is a bookkeeping aid. It is not tax, legal, or accounting advice. Check your categories and allocations with a qualified accountant.</p>
+    <p>The free Field Guide, in HTML and as a PDF:
+    <a href="../field-guide/">the guide as a web page</a> &middot;
+    <a href="../T776-Field-Guide.pdf">the guide as a PDF</a></p>
+    <p>The full expense line map, every line with its code:
+    <a href="../expense-map/">Form T776 expense lines and codes</a>.</p>
+    <p>T776 Rental Books. Not affiliated with the Canada Revenue Agency.</p>
+  </div>
+
+</div>
+<script src="../config.js"></script>
+
+<script>
+(function () {
+  "use strict";
+  // The static HTML ships the live buy anchor so the door works with
+  // JavaScript off. When config.js loads, this re-renders each buy slot from
+  // CHECKOUT_URL: a live link when it is set, an inert "Checkout not
+  // connected yet" button when it is empty, in which case the note is
+  // rewritten to say so. Same contract as the landing page, one source of
+  // truth for the money path.
+  var url = (typeof CHECKOUT_URL === "string") ? CHECKOUT_URL.trim() : "";
+  var price = (typeof PRICE_CAD === "number" && isFinite(PRICE_CAD)) ? PRICE_CAD : 29;
+  var NOT_CONNECTED = "Checkout is not connected yet. Nothing will be charged.";
+
+  var slots = document.querySelectorAll("[data-buy-slot]");
+  for (var j = 0; j < slots.length; j++) {
+    (function (slot) {
+      var control = slot.querySelector(".cta");
+      var note = slot.querySelector(".buy-note");
+      var replacement;
+      if (url) {
+        replacement = document.createElement("a");
+        replacement.className = "cta";
+        replacement.href = url;
+        replacement.target = "_blank";
+        replacement.rel = "noopener";
+        replacement.textContent = "Buy the workbook \u2014 $" + price + " CAD";
+        if (note) { note.hidden = false; }
+      } else {
+        replacement = document.createElement("button");
+        replacement.type = "button";
+        replacement.className = "cta cta--inert";
+        replacement.setAttribute("aria-disabled", "true");
+        replacement.textContent = "Checkout not connected yet";
+        if (note) { note.hidden = false; note.textContent = NOT_CONNECTED; }
+      }
+      if (control && control.parentNode) {
+        control.parentNode.replaceChild(replacement, control);
+      }
+    })(slots[j]);
+  }
+})();
+</script>
+
+<script>
+(function () {
+  "use strict";
+  function el(id) { return document.getElementById(id); }
+  function num(id) {
+    var e = el(id);
+    if (!e) { return 0; }
+    var n = parseFloat(String(e.value).replace(/[^0-9.\-]/g, ""));
+    return isFinite(n) ? n : 0;
+  }
+  function money(n) {
+    var s = Math.abs(n).toLocaleString("en-CA",
+      {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    return (n < 0 ? "-$" : "$") + s;
+  }
+  function pct(x) {
+    return x.toLocaleString("en-CA",
+      {style: "percent", maximumFractionDigits: 1});
+  }
+  function set(id, text) { var e = el(id); if (e) { e.textContent = text; } }
+
+  var SHARED = ["8710", "9180", "8690", "9220"];
+  var DIRECT = ["8521", "8810", "8860", "8871", "8960", "9060", "9200",
+                "9281", "9270"];
+
+  function recalc() {
+    var i, total = num("areaTotal"), area = num("areaRental");
+    var share = total > 0 ? Math.min(1, Math.max(0, area / total)) : 0;
+    var personal = 1 - share;
+
+    var sharedSum = 0;
+    for (i = 0; i < SHARED.length; i++) { sharedSum += num("i" + SHARED[i]); }
+    var rentalShared = sharedSum * share;
+    var personalShared = sharedSum * personal;
+    for (i = 0; i < SHARED.length; i++) {
+      set("o" + SHARED[i], money(num("i" + SHARED[i]) * share));
+    }
+
+    var directSum = 0;
+    for (i = 0; i < DIRECT.length; i++) {
+      var v = num("i" + DIRECT[i]);
+      directSum += v;
+      set("o" + DIRECT[i], money(v));
+    }
+
+    var gross = num("i8141") + num("i8230");
+    var amountA = rentalShared + directSum;
+    set("o8141", money(num("i8141")));
+    set("o8230", money(num("i8230")));
+    set("o8299", money(gross));
+    set("oAmountA", money(amountA));
+    set("o9949", money(personalShared));
+    set("o9369", money(gross - amountA));
+    set("oCapital", money(num("iCapital")));
+    set("oShare", pct(share));
+    set("oSharePersonal", pct(personal));
+    set("oSharedTotal", money(sharedSum));
+    set("oRentalShared", money(rentalShared));
+    set("oPersonalShared", money(personalShared));
+  }
+
+  var inputs = document.querySelectorAll("#calc input");
+  for (var k = 0; k < inputs.length; k++) {
+    inputs[k].addEventListener("input", recalc);
+    inputs[k].addEventListener("change", recalc);
+  }
+  recalc();
+})();
+</script>
+
+<!-- counter:start -->
+<!-- Page-view counter (Abacus, no cookie, no personal data). -->
+<script>(function(){try{var u="https://abacus.jasoncameron.dev/hit/maxhemmerich.github.io/t776-rental-books-calculator";if(window.fetch){fetch(u,{mode:"cors",cache:"no-store",credentials:"omit"}).catch(function(){});}}catch(e){}})();</script>
+<!-- counter:end -->
+</body>
+</html>
