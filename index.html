@@ -186,7 +186,8 @@
 
     <div class="buy-block" data-buy-slot>
       <a class="buy buy--live" href="https://maxhemmerich.gumroad.com/l/emzclv" target="_blank" rel="noopener">Buy the workbook — $29 CAD</a>
-      <p class="buy-note" hidden>Payments are not wired up yet. Nothing will be charged.</p>
+      <p class="buy-note">Buying takes you to the Gumroad listing to pay CA$29. Your .xlsx downloads there the moment the purchase goes through — nothing else is charged.</p>
+      <p class="tbl-note">See it compute before you buy: <a href="downloads/t776-sample.xlsx">download the free partial sample (.xlsx)</a> — two properties, the workbook's own header rows and summary formula, filled with example figures. It is a partial sample, not the full workbook.</p>
       <p class="disclaimer">T776 Rental Books is a bookkeeping aid. It is not tax, legal, or accounting advice. Check your categories and allocations with a qualified accountant.</p>
     </div>
   </section>
@@ -315,7 +316,8 @@
     <p class="price">$<span data-price>29</span> <span class="unit">CAD, one-time. One .xlsx file.</span></p>
     <div class="buy-block" data-buy-slot>
       <a class="buy buy--live" href="https://maxhemmerich.gumroad.com/l/emzclv" target="_blank" rel="noopener">Buy the workbook — $29 CAD</a>
-      <p class="buy-note" hidden>Payments are not wired up yet. Nothing will be charged.</p>
+      <p class="buy-note">Buying takes you to the Gumroad listing to pay CA$29. Your .xlsx downloads there the moment the purchase goes through — nothing else is charged.</p>
+      <p class="tbl-note">See it compute before you buy: <a href="downloads/t776-sample.xlsx">download the free partial sample (.xlsx)</a> — two properties, the workbook's own header rows and summary formula, filled with example figures. It is a partial sample, not the full workbook.</p>
       <p class="disclaimer">T776 Rental Books is a bookkeeping aid. It is not tax, legal, or accounting advice. Check your categories and allocations with a qualified accountant.</p>
     </div>
   </section>
@@ -332,12 +334,15 @@
   "use strict";
 
   // The static HTML ships the live buy anchor so the door works with
-  // JavaScript off. When config.js loads, this script re-renders each buy
-  // slot from CHECKOUT_URL: a live link when it is set, an inert "
-  // Checkout not connected yet" button when it is empty. Keep the static
-  // href and config.js in sync; the script is the source of truth at runtime.
+  // JavaScript off, plus a truthful note saying what a purchase does.
+  // When config.js loads, this script re-renders each buy slot from
+  // CHECKOUT_URL: a live link when it is set, an inert "Checkout not
+  // connected yet" button when it is empty, in which case the note is
+  // rewritten to say so. Keep the static href and config.js in sync; the
+  // script is the source of truth at runtime.
   var url = (typeof CHECKOUT_URL === "string") ? CHECKOUT_URL.trim() : "";
   var price = (typeof PRICE_CAD === "number" && isFinite(PRICE_CAD)) ? PRICE_CAD : 29;
+  var NOT_CONNECTED = "Checkout is not connected yet. Nothing will be charged.";
 
   var priceEls = document.querySelectorAll("[data-price]");
   for (var i = 0; i < priceEls.length; i++) {
@@ -358,14 +363,14 @@
         replacement.target = "_blank";
         replacement.rel = "noopener";
         replacement.textContent = "Buy the workbook \u2014 $" + price + " CAD";
-        if (note) { note.hidden = true; }
+        if (note) { note.hidden = false; }
       } else {
         replacement = document.createElement("button");
         replacement.type = "button";
         replacement.className = "buy buy--inert";
         replacement.setAttribute("aria-disabled", "true");
         replacement.textContent = "Checkout not connected yet";
-        if (note) { note.hidden = false; }
+        if (note) { note.hidden = false; note.textContent = NOT_CONNECTED; }
       }
 
       if (control && control.parentNode) {
