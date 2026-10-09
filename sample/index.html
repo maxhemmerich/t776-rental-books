@@ -104,6 +104,72 @@
   .tab-name{font-family:var(--mono);font-size:16px;white-space:nowrap}
   .tbl-note{font-size:16px;color:var(--ink-soft);max-width:36rem}
 </style>
+<!-- faq-jsonld:start -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the sample the full workbook?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This is a partial sample of T776 Rental Books, the paid Excel workbook for Canadian landlords who file Form T776. It is not the workbook."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the sample contain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It carries the paid file's own header rows and its T776 Summary arithmetic, cut down to two properties and a handful of rows so you can watch the summary compute before you buy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the figures in the sample real?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The amounts on the Rent Ledger, Expenses and T776 Summary tabs are made-up example data, written only to show the arithmetic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I try the sample?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Type into the shaded cells on the Setup, Rent Ledger and Expenses tabs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the summary total itself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The T776 Summary tab totals itself — gross rents and each expense line, per property and per CRA line number, then Amount A, the line-9949 personal portion, deductible expenses and the line-9369 net."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many tabs does the paid workbook have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The paid workbook has eight tabs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which cell sets the tax year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tax year is the one cell, B2 on the T776 Summary tab."
+      }
+    }
+  ]
+}
+</script>
+<!-- faq-jsonld:end -->
 </head>
 <body>
 <div class="wrap">
@@ -212,6 +278,25 @@
 <p class="actions"><a class="cta" href="../downloads/t776-sample.xlsx">Download the free sample (.xlsx)</a><a class="dl" href="https://maxhemmerich.github.io/t776-rental-books/">Buy the full workbook &mdash; $29 CAD</a></p>
 <p class="disclaimer">T776 Rental Books is a bookkeeping aid. It is not tax, legal, or accounting advice. Check your categories and allocations with a qualified accountant.</p>
 </section>
+<!-- faq:start -->
+<section id="faq" aria-labelledby="faq-heading">
+<h2 id="faq-heading">Frequently asked</h2>
+<h3>Is the sample the full workbook?</h3>
+<p>This is a partial sample of T776 Rental Books, the paid Excel workbook for Canadian landlords who file Form T776. It is not the workbook.</p>
+<h3>What does the sample contain?</h3>
+<p>It carries the paid file's own header rows and its T776 Summary arithmetic, cut down to two properties and a handful of rows so you can watch the summary compute before you buy.</p>
+<h3>Are the figures in the sample real?</h3>
+<p>The amounts on the Rent Ledger, Expenses and T776 Summary tabs are made-up example data, written only to show the arithmetic.</p>
+<h3>How do I try the sample?</h3>
+<p>Type into the shaded cells on the Setup, Rent Ledger and Expenses tabs.</p>
+<h3>Does the summary total itself?</h3>
+<p>The T776 Summary tab totals itself — gross rents and each expense line, per property and per CRA line number, then Amount A, the line-9949 personal portion, deductible expenses and the line-9369 net.</p>
+<h3>How many tabs does the paid workbook have?</h3>
+<p>The paid workbook has eight tabs.</p>
+<h3>Which cell sets the tax year?</h3>
+<p>The tax year is the one cell, B2 on the T776 Summary tab.</p>
+</section>
+<!-- faq:end -->
 <div class="foot">
   <p><b>T776 Rental Books</b> &mdash; the paid workbook this sample is cut from
   is a Microsoft Excel file, sold on its own page:
@@ -225,5 +310,9 @@
 </div>
 
 </div>
+<!-- counter:start -->
+<!-- Page-view counter (Abacus, no cookie, no personal data). -->
+<script>(function(){try{var u="https://abacus.jasoncameron.dev/hit/maxhemmerich.github.io/t776-rental-books-sample";if(window.fetch){fetch(u,{mode:"cors",cache:"no-store",credentials:"omit"}).catch(function(){});}}catch(e){}})();</script>
+<!-- counter:end -->
 </body>
 </html>

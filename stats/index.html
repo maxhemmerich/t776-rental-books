@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page views for the T776 Rental Books site | T776 Rental Books</title>
+<meta name="description" content="A raw page-load count for every page of the T776 Rental Books site, read from a free counter with no cookies and no personal data. Not unique visitors - loads that ran JavaScript.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://maxhemmerich.github.io/t776-rental-books/stats/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="T776 Rental Books">
+<meta property="og:title" content="Page views for the T776 Rental Books site">
+<meta property="og:description" content="A raw page-load count for every page of the site. No cookies, no personal data.">
+<meta property="og:url" content="https://maxhemmerich.github.io/t776-rental-books/stats/">
+<meta property="og:image" content="https://maxhemmerich.github.io/t776-rental-bookssummary-tab-example.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{
+    --paper:#f7f2e7;
+    --ink:#181712;
+    --ink-soft:#4c463a;
+    --rule:#d8cdb6;
+    --accent:#1b4d3e;
+    --accent-dark:#123227;
+    --navy:#1f3b57;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+       font-size:17px;line-height:1.55;text-align:left}
+  .wrap{max-width:44rem;margin:0 auto;padding:30px 20px 60px}
+  p{margin:0 0 16px;max-width:38rem}
+  a{color:var(--accent)}
+  a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .kicker{font-family:var(--mono);font-size:13px;letter-spacing:.12em;
+          text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+  h1{font-family:var(--serif);font-weight:700;font-size:clamp(27px,6.6vw,40px);
+     line-height:1.14;letter-spacing:-.01em;margin:0 0 14px;max-width:34rem}
+  h2{font-family:var(--serif);font-weight:700;font-size:clamp(21px,4.6vw,27px);
+     line-height:1.2;margin:0 0 14px;max-width:34rem}
+  h2 .num{font-family:var(--mono);font-size:.62em;color:var(--accent);
+          vertical-align:.18em;margin-right:.4em}
+  h3{font-size:16px;font-weight:700;letter-spacing:.02em;margin:26px 0 10px}
+  section{margin-top:46px;border-top:1px solid var(--rule);padding-top:26px}
+  section:first-of-type{margin-top:0;border-top:0;padding-top:0}
+  .lede{font-size:19px;color:var(--ink-soft);max-width:36rem}
+  .meta{font-family:var(--mono);font-size:14px;color:var(--ink-soft);
+        margin:0 0 18px;padding:0;display:grid;grid-template-columns:auto 1fr;
+        gap:2px 14px;max-width:26rem}
+  .meta dt{color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+  .meta dd{margin:0}
+  .cover-note{font-size:17px;color:var(--ink-soft);max-width:36rem}
+  .actions{margin:20px 0 6px;padding:0;display:flex;flex-wrap:wrap;gap:12px}
+  .cta,.dl{display:inline-block;min-height:48px;padding:14px 22px;font-weight:600;
+           font-size:17px;line-height:1.2;text-decoration:none;border-radius:3px}
+  .cta{background:var(--accent);color:#f7f2e7;border:1px solid var(--accent)}
+  .cta:hover,.cta:focus{background:var(--accent-dark)}
+  .dl{border:1px solid var(--accent);color:var(--accent);background:transparent}
+  .dl:hover,.dl:focus{background:#efe8d8}
+  .panel{margin:26px 0;padding:12px 14px;background:#eef2f6;
+         border:1px solid var(--navy);border-left-width:4px}
+  .panel p{margin:0;font-size:15px}
+  .note{font-size:16px;font-style:italic;color:var(--ink-soft);max-width:36rem}
+  nav.toc{margin:34px 0 0;padding:16px 18px;border:1px solid var(--rule);
+          background:#fdfaf3}
+  nav.toc h2{font-family:var(--sans);font-size:14px;letter-spacing:.06em;
+             text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px}
+  nav.toc ol{margin:0;padding-left:1.3rem}
+  nav.toc li{margin:0 0 6px;font-size:16px}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0 6px}
+  table{width:100%;max-width:44rem;border-collapse:collapse;font-size:16px;
+        border:1px solid var(--rule)}
+  th{text-align:left;font-size:13px;letter-spacing:.05em;text-transform:uppercase;
+     color:#fff;background:var(--navy);font-weight:700;padding:8px 10px;
+     vertical-align:top}
+  td{text-align:left;vertical-align:top;padding:9px 10px;
+     border-top:1px solid var(--rule)}
+  td .code{font-family:var(--mono);white-space:nowrap}
+  td .r{display:block;text-align:right;font-variant-numeric:tabular-nums}
+  .cbox{display:inline-block;width:13px;height:13px;border:1px solid #44546a;
+        vertical-align:-1px}
+  ul{margin:0 0 16px;padding-left:1.15rem;max-width:36rem}
+  ol{margin:0 0 16px;padding-left:1.3rem;max-width:38rem}
+  li{margin:0 0 9px}
+  hr{border:0;border-top:1px solid var(--rule);margin:18px 0}
+  .foot{margin-top:52px;border-top:1px solid var(--rule);padding-top:18px;
+        font-size:16px;color:var(--ink-soft)}
+  .foot p{max-width:38rem}
+  .foot ul{padding-left:1.15rem}
+
+  .views{font-family:var(--mono);font-variant-numeric:tabular-nums;
+         font-weight:700;font-size:18px}
+  .keycell{font-family:var(--mono);font-size:14px;white-space:nowrap;
+           color:var(--ink-soft)}
+  .hint{font-size:16px;color:var(--ink-soft);max-width:38rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="kicker">T776 Rental Books &mdash; page views</p>
+    <h1>Page views for this site</h1>
+    <p class="lede">A raw count of page loads for each page, read from a free
+    counter that needs no account and holds no data about the reader.</p>
+    <p class="hint">It counts a page load every time one happens and the page
+    runs JavaScript - a reload counts twice, a crawler that runs no JavaScript
+    does not count. It is a load counter, not a unique-visitor count: there is
+    no cookie, nothing is stored on the reader's device, and no personal data is
+    sent. The number below is refreshed live when this page loads, so it is the
+    count now.</p>
+  </header>
+  <section class="first">
+    <h2>The counter, by page</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th scope="col">Page</th><th scope="col">URL</th>
+        <th scope="col">Counter key</th><th scope="col">Views</th></tr></thead>
+        <tbody>
+    <tr>
+      <td>Landing page (the buy door)</td>
+      <td><a href="https://maxhemmerich.github.io/t776-rental-books/">/</a></td>
+      <td class="keycell">t776-rental-books-home</td>
+      <td><span class="r views" data-key="t776-rental-books-home">0</span></td>
+    </tr>
+    <tr>
+      <td>Free Field Guide</td>
+      <td><a href="https://maxhemmerich.github.io/t776-rental-books/field-guide/">/field-guide/</a></td>
+      <td class="keycell">t776-rental-books-field-guide</td>
+      <td><span class="r views" data-key="t776-rental-books-field-guide">0</span></td>
+    </tr>
+    <tr>
+      <td>T776 expense line map</td>
+      <td><a href="https://maxhemmerich.github.io/t776-rental-books/expense-map/">/expense-map/</a></td>
+      <td class="keycell">t776-rental-books-expense-map</td>
+      <td><span class="r views" data-key="t776-rental-books-expense-map">0</span></td>
+    </tr>
+    <tr>
+      <td>Free partial sample</td>
+      <td><a href="https://maxhemmerich.github.io/t776-rental-books/sample/">/sample/</a></td>
+      <td class="keycell">t776-rental-books-sample</td>
+      <td><span class="r views" data-key="t776-rental-books-sample">0</span></td>
+    </tr>
+    <tr>
+      <td>How to file on Form T776</td>
+      <td><a href="https://maxhemmerich.github.io/t776-rental-books/t776-how-to-file/">/t776-how-to-file/</a></td>
+      <td class="keycell">t776-rental-books-t776-how-to-file</td>
+      <td><span class="r views" data-key="t776-rental-books-t776-how-to-file">0</span></td>
+    </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint">Built 2026-10-08 23:15 Eastern Daylight Time. The counter service is
+    <a href="https://abacus.jasoncameron.dev">Abacus</a>; this site's namespace
+    is <span class="keycell">maxhemmerich.github.io</span>.</p>
+  </section>
+  <div class="foot">
+    <p><b>T776 Rental Books</b> &mdash; the paid workbook is a Microsoft Excel
+    file, sold on its own page: <a href="https://maxhemmerich.github.io/t776-rental-books">https://maxhemmerich.github.io/t776-rental-books</a></p>
+    <p>The free Field Guide, the expense line map and the free partial sample
+    are all linked from that page.</p>
+    <p>T776 Rental Books. Not affiliated with the Canada Revenue Agency.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var base = "https://abacus.jasoncameron.dev/get/maxhemmerich.github.io/";
+  function fill(el){
+    var k = el.getAttribute("data-key");
+    if(!window.fetch || !k){ return; }
+    fetch(base + k, {mode:"cors", cache:"no-store", credentials:"omit"})
+      .then(function(r){ return r.ok ? r.json() : {value: 0}; })
+      .then(function(j){ el.textContent = (j && typeof j.value === "number")
+        ? j.value : 0; })
+      .catch(function(){});
+  }
+  var els = document.querySelectorAll(".views");
+  for (var i = 0; i < els.length; i++) { fill(els[i]); }
+})();
+</script>
+</body>
+</html>
