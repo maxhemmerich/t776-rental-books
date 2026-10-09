@@ -1,0 +1,4 @@
+# Keep the free downloads byte-for-byte, so the served file == the local file.
+# The site-check compares them byte-identically; git's line-ending
+# normalisation would otherwise rewrite a .csv on commit and break it.
+downloads/*.csv text eol=lf
