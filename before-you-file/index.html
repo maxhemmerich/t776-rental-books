@@ -99,13 +99,17 @@
   .cra{margin:34px 0 0;padding:20px 20px 8px;border:1px solid var(--navy);
        border-left-width:5px;background:#eef2f6}
   .cra h2{margin-top:0}
-  .cra blockquote{margin:0 0 18px;padding:0 0 0 14px;
+  .cra blockquote{margin:0 0 18px;padding:0 0 14px;
                   border-left:2px solid var(--rule)}
   .cra blockquote p{font-family:var(--serif);font-size:17px;margin:0 0 6px;
                     max-width:36rem}
   .cra .src{font-family:var(--sans);font-size:15px;color:var(--ink-soft);
             margin:0;max-width:36rem;word-break:break-word}
   .cra .src a{word-break:break-all}
+  .buy-block{margin:22px 0 0}
+  .buy-note{margin:12px 0 0;padding:11px 14px;background:#eee4cd;
+            border-left:3px solid var(--accent);font-size:15px}
+  .cta--inert{background:#8a8578;border-color:#8a8578;cursor:not-allowed}
 </style>
 <!-- faq-jsonld:start -->
 <script type="application/ld+json">
@@ -374,6 +378,19 @@
     <p class="src">Read from <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/forms/t776.html">Canada Revenue Agency, T776 Statement of Real Estate Rentals - the form's own page</a> on 2026-10-09.</p>
   </blockquote>
 </div>
+<section>
+  <h2>Buy the workbook</h2>
+  <p>This page is free. The paid product is the Excel workbook behind the same
+  T776 line map the guide prints &mdash; the lines filled in through the year,
+  so the T776 summary is finished before you file.</p>
+  <div class="buy-block" data-buy-slot>
+    <p class="actions">
+      <a class="cta" href="https://maxhemmerich.gumroad.com/l/emzclv" target="_blank" rel="noopener">Buy the workbook &mdash; $29 CAD</a>
+    </p>
+    <p class="buy-note">Buying takes you to the Gumroad listing to pay CA$29. Your .xlsx downloads there the moment the purchase goes through &mdash; nothing else is charged.</p>
+  </div>
+</section>
+
 <div class="foot">
   <p><b>T776 Rental Books</b> &mdash; the paid workbook whose Expenses tab is
   built from the same T776 line map this guide prints is a Microsoft Excel
@@ -392,6 +409,50 @@
 </div>
 
 </div>
+<script src="../config.js"></script>
+
+<script>
+(function () {
+  "use strict";
+  // The static HTML ships the live buy anchor so the door works with
+  // JavaScript off. When config.js loads, this re-renders each buy slot from
+  // CHECKOUT_URL: a live link when it is set, an inert "Checkout not
+  // connected yet" button when it is empty, in which case the note is
+  // rewritten to say so. Same contract as the landing page, one source of
+  // truth for the money path.
+  var url = (typeof CHECKOUT_URL === "string") ? CHECKOUT_URL.trim() : "";
+  var price = (typeof PRICE_CAD === "number" && isFinite(PRICE_CAD)) ? PRICE_CAD : 29;
+  var NOT_CONNECTED = "Checkout is not connected yet. Nothing will be charged.";
+
+  var slots = document.querySelectorAll("[data-buy-slot]");
+  for (var j = 0; j < slots.length; j++) {
+    (function (slot) {
+      var control = slot.querySelector(".cta");
+      var note = slot.querySelector(".buy-note");
+      var replacement;
+      if (url) {
+        replacement = document.createElement("a");
+        replacement.className = "cta";
+        replacement.href = url;
+        replacement.target = "_blank";
+        replacement.rel = "noopener";
+        replacement.textContent = "Buy the workbook \u2014 $" + price + " CAD";
+        if (note) { note.hidden = false; }
+      } else {
+        replacement = document.createElement("button");
+        replacement.type = "button";
+        replacement.className = "cta cta--inert";
+        replacement.setAttribute("aria-disabled", "true");
+        replacement.textContent = "Checkout not connected yet";
+        if (note) { note.hidden = false; note.textContent = NOT_CONNECTED; }
+      }
+      if (control && control.parentNode) {
+        control.parentNode.replaceChild(replacement, control);
+      }
+    })(slots[j]);
+  }
+})();
+</script>
 <!-- counter:start -->
 <!-- Page-view counter (Abacus, no cookie, no personal data). -->
 <script>(function(){try{var u="https://abacus.jasoncameron.dev/hit/maxhemmerich.github.io/t776-rental-books-before-you-file";if(window.fetch){fetch(u,{mode:"cors",cache:"no-store",credentials:"omit"}).catch(function(){});}}catch(e){}})();</script>
