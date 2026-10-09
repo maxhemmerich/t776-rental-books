@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Renting part of your home on Form T776 - the rental share and the personal portion | T776 Rental Books</title>
+<meta name="description" content="When part of your home is rented, the costs that serve the whole home are split: you claim the rental share and leave your own share personal. How the split works, with the free T776 Field Guide's own worked example of a basement suite. A bookkeeping reference, not tax advice.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://maxhemmerich.github.io/t776-rental-books/renting-part-of-your-home/">
+<link rel="alternate" type="application/pdf" href="../T776-Field-Guide.pdf" title="The Canadian Small-Landlord T776 Field Guide (PDF)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="T776 Rental Books">
+<meta property="og:title" content="Renting part of your home on Form T776">
+<meta property="og:description" content="When part of your home is rented, the costs that serve the whole home are split: you claim the rental share and leave your own share personal. How the split works, with the free T776 Field Guide's own worked example of a basement suite. A bookkeeping reference, not tax advice.">
+<meta property="og:url" content="https://maxhemmerich.github.io/t776-rental-books/renting-part-of-your-home/">
+<meta property="og:image" content="https://maxhemmerich.github.io/t776-rental-books/summary-tab-example.png">
+<meta property="og:image:alt" content="The T776 Summary tab of the T776 Rental Books workbook: gross rents and every T776 expense line totalled per property and per CRA line number, with the personal portion of the shared costs reported on line 9949.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Renting part of your home on Form T776">
+<meta name="twitter:description" content="When part of your home is rented, the costs that serve the whole home are split: you claim the rental share and leave your own share personal. How the split works, with the free T776 Field Guide's own worked example of a basement suite. A bookkeeping reference, not tax advice.">
+<meta name="twitter:image" content="https://maxhemmerich.github.io/t776-rental-books/summary-tab-example.png">
+<style>
+  :root{
+    --paper:#f7f2e7;
+    --ink:#181712;
+    --ink-soft:#4c463a;
+    --rule:#d8cdb6;
+    --accent:#1b4d3e;
+    --accent-dark:#123227;
+    --navy:#1f3b57;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+       font-size:17px;line-height:1.55;text-align:left}
+  .wrap{max-width:44rem;margin:0 auto;padding:30px 20px 60px}
+  p{margin:0 0 16px;max-width:38rem}
+  a{color:var(--accent)}
+  a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .kicker{font-family:var(--mono);font-size:13px;letter-spacing:.12em;
+          text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+  h1{font-family:var(--serif);font-weight:700;font-size:clamp(27px,6.6vw,40px);
+     line-height:1.14;letter-spacing:-.01em;margin:0 0 14px;max-width:34rem}
+  h2{font-family:var(--serif);font-weight:700;font-size:clamp(21px,4.6vw,27px);
+     line-height:1.2;margin:0 0 14px;max-width:34rem}
+  h2 .num{font-family:var(--mono);font-size:.62em;color:var(--accent);
+          vertical-align:.18em;margin-right:.4em}
+  h3{font-size:16px;font-weight:700;letter-spacing:.02em;margin:26px 0 10px}
+  section{margin-top:46px;border-top:1px solid var(--rule);padding-top:26px}
+  section:first-of-type{margin-top:0;border-top:0;padding-top:0}
+  .lede{font-size:19px;color:var(--ink-soft);max-width:36rem}
+  .meta{font-family:var(--mono);font-size:14px;color:var(--ink-soft);
+        margin:0 0 18px;padding:0;display:grid;grid-template-columns:auto 1fr;
+        gap:2px 14px;max-width:26rem}
+  .meta dt{color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+  .meta dd{margin:0}
+  .cover-note{font-size:17px;color:var(--ink-soft);max-width:36rem}
+  .actions{margin:20px 0 6px;padding:0;display:flex;flex-wrap:wrap;gap:12px}
+  .cta,.dl{display:inline-block;min-height:48px;padding:14px 22px;font-weight:600;
+           font-size:17px;line-height:1.2;text-decoration:none;border-radius:3px}
+  .cta{background:var(--accent);color:#f7f2e7;border:1px solid var(--accent)}
+  .cta:hover,.cta:focus{background:var(--accent-dark)}
+  .dl{border:1px solid var(--accent);color:var(--accent);background:transparent}
+  .dl:hover,.dl:focus{background:#efe8d8}
+  .panel{margin:26px 0;padding:12px 14px;background:#eef2f6;
+         border:1px solid var(--navy);border-left-width:4px}
+  .panel p{margin:0;font-size:15px}
+  .note{font-size:16px;font-style:italic;color:var(--ink-soft);max-width:36rem;
+        overflow-wrap:anywhere}
+  nav.toc{margin:34px 0 0;padding:16px 18px;border:1px solid var(--rule);
+          background:#fdfaf3}
+  nav.toc h2{font-family:var(--sans);font-size:14px;letter-spacing:.06em;
+             text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px}
+  nav.toc ol{margin:0;padding-left:1.3rem}
+  nav.toc li{margin:0 0 6px;font-size:16px}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0 6px}
+  table{width:100%;max-width:44rem;border-collapse:collapse;font-size:16px;
+        border:1px solid var(--rule)}
+  th{text-align:left;font-size:13px;letter-spacing:.05em;text-transform:uppercase;
+     color:#fff;background:var(--navy);font-weight:700;padding:8px 10px;
+     vertical-align:top}
+  td{text-align:left;vertical-align:top;padding:9px 10px;
+     border-top:1px solid var(--rule)}
+  td .code{font-family:var(--mono);white-space:nowrap}
+  td .r{display:block;text-align:right;font-variant-numeric:tabular-nums}
+  .cbox{display:inline-block;width:13px;height:13px;border:1px solid #44546a;
+        vertical-align:-1px}
+  ul{margin:0 0 16px;padding-left:1.15rem;max-width:36rem}
+  ol{margin:0 0 16px;padding-left:1.3rem;max-width:38rem}
+  li{margin:0 0 9px}
+  hr{border:0;border-top:1px solid var(--rule);margin:18px 0}
+  .foot{margin-top:52px;border-top:1px solid var(--rule);padding-top:18px;
+        font-size:16px;color:var(--ink-soft)}
+  .foot p{max-width:38rem}
+  .foot ul{padding-left:1.15rem}
+
+  .buy-block{margin:22px 0 0}
+  .buy-note{margin:12px 0 0;padding:11px 14px;background:#eee4cd;
+            border-left:3px solid var(--accent);font-size:15px}
+  .cta--inert{background:#8a8578;border-color:#8a8578;cursor:not-allowed}
+</style>
+<!-- faq-jsonld:start -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is the rental share of my home worked out?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The split is simply the rental area divided by the total area."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I claim all of a shared cost when I rent part of my home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You claim the rental share and leave your own share personal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the personal share get deducted?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The personal 60%, $12,600, is not deducted."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is square footage the only accepted way to split the costs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CRA's guidance accepts a reasonable method; square footage is the usual one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this tax advice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "T776 Rental Books is a bookkeeping aid. It is not tax, legal, or accounting advice."
+      }
+    }
+  ]
+}
+</script>
+<!-- faq-jsonld:end -->
+</head>
+<body>
+<div class="wrap">
+<header>
+  <p class="kicker">T776 Rental Books &mdash; free guide</p>
+  <h1>Renting part of your home on Form T776</h1>
+  <p class="lede">When part of your home is rented and part is yours, the costs that serve the whole home - mortgage interest, property taxes, insurance, utilities - have to be divided between the rental and your own use. This page is the free T776 Field Guide's own section on that split, with its full worked example of a basement suite.</p>
+  <p class="note">The section below is rendered from the same source the free PDF is built from, so nothing here can drift from it. It is the guide's own arithmetic, worked step by step on one home: the split, the share of each shared cost, and the personal portion that is reported but not deducted.</p>
+  <p class="actions">
+    <a class="cta" href="https://maxhemmerich.github.io/t776-rental-books/">See T776 Rental Books &mdash; $29 CAD</a>
+    <a class="dl" href="../field-guide/">Read the whole free guide</a>
+    <a class="dl" href="https://maxhemmerich.github.io/t776-rental-books/T776-Field-Guide.pdf">Download it as a PDF</a>
+  </p>
+</header>
+
+<section id="s4">
+<h2><span class="num">4</span> Renting part of your home</h2>
+<p>When part of your home is rented and part is yours, the costs that serve the whole home have to be split. You claim the rental share and leave your own share personal. CRA's guidance accepts a reasonable method; <b>square footage is the usual one</b>.</p>
+<p>The split is simply the rental area divided by the total area. Below is a full worked example. Every dollar figure in it is arithmetic done in the source script that built this PDF - nothing here is a claimed saving or a survey result.</p>
+<h3>The example, step by step</h3>
+<ol>
+<li>The home is <b>2,000 square feet</b>. The basement suite you rent is <b>800 square feet</b>.</li>
+<li>800 &divide; 2,000 = <b>0.40</b>. The rental share is <b>40%</b> and <b>60%</b> of the home stays personal.</li>
+<li>Whole-home costs for the year: mortgage interest <b>$12,000</b>, property taxes <b>$4,500</b>, insurance <b>$1,500</b>, utilities <b>$3,000</b>. Together that is <b>$21,000</b>.</li>
+<li>Apply 40% to each: interest $4,800, property tax $1,800, insurance $600, utilities $1,200 - a rental total of <b>$8,400</b>. The personal 60%, <b>$12,600</b>, is not deducted.</li>
+<li>Costs that relate only to the suite are claimed at 100%: a suite-specific repair of <b>$900</b> and <b>$150</b> of advertising for a tenant.</li>
+<li>Income: gross rent of <b>$18,000</b> for the year.</li>
+<li>Total expenses (amount A) = $8,400 + $900 + $150 = <b>$9,450</b>.</li>
+<li>Net rental income (line 9369) = $18,000 &minus; $9,450 = <b>$8,550</b>.</li>
+</ol>
+<h3>The worked table</h3>
+<div class="scroll">
+<table>
+<thead><tr>
+<th scope="col">Line</th>
+<th scope="col">Item</th>
+<th scope="col">Full-year amount</th>
+<th scope="col">Share claimed</th>
+<th scope="col">Amount on T776</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><span class="code">8141</span></td>
+<td>Gross rents</td>
+<td>-</td>
+<td>-</td>
+<td><span class="r">$18,000.00</span></td>
+</tr>
+<tr>
+<td><span class="code">8710</span></td>
+<td>Mortgage interest</td>
+<td><span class="r">$12,000.00</span></td>
+<td><span class="r">40%</span></td>
+<td><span class="r">$4,800.00</span></td>
+</tr>
+<tr>
+<td><span class="code">9180</span></td>
+<td>Property taxes</td>
+<td><span class="r">$4,500.00</span></td>
+<td><span class="r">40%</span></td>
+<td><span class="r">$1,800.00</span></td>
+</tr>
+<tr>
+<td><span class="code">8690</span></td>
+<td>Insurance</td>
+<td><span class="r">$1,500.00</span></td>
+<td><span class="r">40%</span></td>
+<td><span class="r">$600.00</span></td>
+</tr>
+<tr>
+<td><span class="code">9220</span></td>
+<td>Utilities</td>
+<td><span class="r">$3,000.00</span></td>
+<td><span class="r">40%</span></td>
+<td><span class="r">$1,200.00</span></td>
+</tr>
+<tr>
+<td><span class="code">8960</span></td>
+<td>Suite repair (suite only)</td>
+<td><span class="r">$900.00</span></td>
+<td><span class="r">100%</span></td>
+<td><span class="r">$900.00</span></td>
+</tr>
+<tr>
+<td><span class="code">8521</span></td>
+<td>Advertising (rental only)</td>
+<td><span class="r">$150.00</span></td>
+<td><span class="r">100%</span></td>
+<td><span class="r">$150.00</span></td>
+</tr>
+<tr>
+<td><span class="code">Amount A</span></td>
+<td><b>Total expenses</b></td>
+<td>-</td>
+<td>-</td>
+<td><span class="r"><b>$9,450.00</b></span></td>
+</tr>
+<tr>
+<td><span class="code">9949</span></td>
+<td>Personal portion (reported, not deducted)</td>
+<td>-</td>
+<td><span class="r">60%</span></td>
+<td><span class="r">$12,600.00</span></td>
+</tr>
+<tr>
+<td><span class="code">9369</span></td>
+<td><b>Net income before adjustments</b></td>
+<td>-</td>
+<td>-</td>
+<td><span class="r"><b>$8,550.00</b></span></td>
+</tr>
+</tbody></table></div>
+<p class="note"><b>The arithmetic check.</b> Rental rows: $4,800 + $1,800 + $600 + $1,200 + $900 + $150 = $9,450.00, which is amount A. Net: $18,000 &minus; $9,450.00 = $8,550.00. The shared pool splits cleanly: $8,400 rental + $12,600 personal = $21,000.</p>
+</section>
+<p class="note">The paid workbook does this split for you, property by property, and carries the personal portion onto the summary on its own line. The free guide is where the method is written down.</p>
+
+<section>
+  <h2>Buy the workbook</h2>
+  <p>This page is free. The paid product is the Excel workbook behind the same
+  T776 line map the guide prints &mdash; the lines filled in through the year,
+  so the T776 summary is finished before you file, with the rental share split
+  and the personal portion carried onto the summary for you.</p>
+  <div class="buy-block" data-buy-slot>
+    <p class="actions">
+      <a class="cta" href="https://maxhemmerich.gumroad.com/l/emzclv" target="_blank" rel="noopener">Buy the workbook &mdash; $29 CAD</a>
+    </p>
+    <p class="buy-note">Buying takes you to the Gumroad listing to pay CA$29. Your .xlsx downloads there the moment the purchase goes through &mdash; nothing else is charged.</p>
+  </div>
+</section>
+
+
+<!-- faq:start -->
+<section id="faq" aria-labelledby="faq-heading">
+<h2 id="faq-heading">Frequently asked</h2>
+<h3>How is the rental share of my home worked out?</h3>
+<p>The split is simply the rental area divided by the total area.</p>
+<h3>Do I claim all of a shared cost when I rent part of my home?</h3>
+<p>You claim the rental share and leave your own share personal.</p>
+<h3>Does the personal share get deducted?</h3>
+<p>The personal 60%, $12,600, is not deducted.</p>
+<h3>Is square footage the only accepted way to split the costs?</h3>
+<p>CRA's guidance accepts a reasonable method; square footage is the usual one.</p>
+<h3>Is this tax advice?</h3>
+<p>T776 Rental Books is a bookkeeping aid. It is not tax, legal, or accounting advice.</p>
+</section>
+<!-- faq:end -->
+<div class="foot">
+  <p><b>T776 Rental Books</b> &mdash; the paid workbook whose T776 Summary splits the rental share and carries the personal portion onto its own line is a Microsoft Excel file, sold on its own page: <a href="https://maxhemmerich.github.io/t776-rental-books/">https://maxhemmerich.github.io/t776-rental-books/</a></p>
+  <p>The whole free guide, including its own section 4 and the worked example above: <a href="../field-guide/">read it as a web page</a> &mdash; or as a PDF: <a href="../T776-Field-Guide.pdf">T776-Field-Guide.pdf</a></p>
+  <p>Try the same split with your own numbers in the free in-browser calculator: <a href="../calculator/">the T776 calculator</a>.</p>
+  <p>Every expense line on the form, with its code and a note on what belongs on it: <a href="../expense-map/">the T776 expense line map</a>.</p>
+  <p>What has to be in hand before the form is filled in &mdash; the records, the receipts and the retention rule: <a href="../before-you-file/">what to have ready before you file Form T776</a>.</p>
+  <p>Every free file this site offers, on one page: <a href="../downloads/">the free downloads index</a>.</p>
+  <p>T776 Rental Books is published by Max Hemmerich.</p>
+  <p>T776 Rental Books is a bookkeeping aid. It is not tax, legal, or accounting advice. Check your categories and allocations with a qualified accountant.</p>
+  <p>T776 Rental Books. Not affiliated with the Canada Revenue Agency.</p>
+</div>
+
+</div>
+<script src="../config.js"></script>
+
+<script>
+(function () {
+  "use strict";
+  // The static HTML ships the live buy anchor so the door works with
+  // JavaScript off. When config.js loads, this re-renders each buy slot from
+  // CHECKOUT_URL: a live link when it is set, an inert "Checkout not
+  // connected yet" button when it is empty, in which case the note is
+  // rewritten to say so. Same contract as the landing page, one source of
+  // truth for the money path.
+  var url = (typeof CHECKOUT_URL === "string") ? CHECKOUT_URL.trim() : "";
+  var price = (typeof PRICE_CAD === "number" && isFinite(PRICE_CAD)) ? PRICE_CAD : 29;
+  var NOT_CONNECTED = "Checkout is not connected yet. Nothing will be charged.";
+
+  var slots = document.querySelectorAll("[data-buy-slot]");
+  for (var j = 0; j < slots.length; j++) {
+    (function (slot) {
+      var control = slot.querySelector(".cta");
+      var note = slot.querySelector(".buy-note");
+      var replacement;
+      if (url) {
+        replacement = document.createElement("a");
+        replacement.className = "cta";
+        replacement.href = url;
+        replacement.target = "_blank";
+        replacement.rel = "noopener";
+        replacement.textContent = "Buy the workbook \u2014 $" + price + " CAD";
+        if (note) { note.hidden = false; }
+      } else {
+        replacement = document.createElement("button");
+        replacement.type = "button";
+        replacement.className = "cta cta--inert";
+        replacement.setAttribute("aria-disabled", "true");
+        replacement.textContent = "Checkout not connected yet";
+        if (note) { note.hidden = false; note.textContent = NOT_CONNECTED; }
+      }
+      if (control && control.parentNode) {
+        control.parentNode.replaceChild(replacement, control);
+      }
+    })(slots[j]);
+  }
+})();
+</script>
+<!-- counter:start -->
+<!-- Page-view counter (Abacus, no cookie, no personal data). -->
+<script>(function(){try{var u="https://abacus.jasoncameron.dev/hit/maxhemmerich.github.io/t776-rental-books-renting-part-of-your-home";if(window.fetch){fetch(u,{mode:"cors",cache:"no-store",credentials:"omit"}).catch(function(){});}}catch(e){}})();</script>
+<!-- counter:end -->
+</body>
+</html>
