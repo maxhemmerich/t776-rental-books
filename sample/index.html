@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A T776 spreadsheet you can open first: the free sample, tab by tab | T776 Rental Books</title>
+<meta name="description" content="What the free partial sample of the T776 Rental Books spreadsheet contains: its tabs, its header rows, the summary formula, and the example figures it computes. A free .xlsx for Canadian landlords filing Form T776. The paid workbook is the full eight-tab version.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://maxhemmerich.github.io/t776-rental-books/sample/">
+<link rel="alternate" type="application/pdf" href="../T776-Field-Guide.pdf" title="The Canadian Small-Landlord T776 Field Guide (PDF)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="T776 Rental Books">
+<meta property="og:title" content="A T776 spreadsheet you can open before you buy">
+<meta property="og:description" content="What the free partial sample of the T776 Rental Books spreadsheet contains: its tabs, its header rows, the summary formula, and the example figures it computes. A free .xlsx for Canadian landlords filing Form T776. The paid workbook is the full eight-tab version.">
+<meta property="og:url" content="https://maxhemmerich.github.io/t776-rental-books/sample/">
+<meta property="og:image" content="https://maxhemmerich.github.io/t776-rental-books/summary-tab-example.png">
+<meta property="og:image:alt" content="The T776 Summary tab of the T776 Rental Books workbook: gross rents and every T776 expense line totalled per property and per CRA line number.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A T776 spreadsheet you can open before you buy">
+<meta name="twitter:description" content="What the free partial sample of the T776 Rental Books spreadsheet contains: its tabs, its header rows, the summary formula, and the example figures it computes. A free .xlsx for Canadian landlords filing Form T776. The paid workbook is the full eight-tab version.">
+<meta name="twitter:image" content="https://maxhemmerich.github.io/t776-rental-books/summary-tab-example.png">
+<style>
+  :root{
+    --paper:#f7f2e7;
+    --ink:#181712;
+    --ink-soft:#4c463a;
+    --rule:#d8cdb6;
+    --accent:#1b4d3e;
+    --accent-dark:#123227;
+    --navy:#1f3b57;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+       font-size:17px;line-height:1.55;text-align:left}
+  .wrap{max-width:44rem;margin:0 auto;padding:30px 20px 60px}
+  p{margin:0 0 16px;max-width:38rem}
+  a{color:var(--accent)}
+  a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .kicker{font-family:var(--mono);font-size:13px;letter-spacing:.12em;
+          text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+  h1{font-family:var(--serif);font-weight:700;font-size:clamp(27px,6.6vw,40px);
+     line-height:1.14;letter-spacing:-.01em;margin:0 0 14px;max-width:34rem}
+  h2{font-family:var(--serif);font-weight:700;font-size:clamp(21px,4.6vw,27px);
+     line-height:1.2;margin:0 0 14px;max-width:34rem}
+  h2 .num{font-family:var(--mono);font-size:.62em;color:var(--accent);
+          vertical-align:.18em;margin-right:.4em}
+  h3{font-size:16px;font-weight:700;letter-spacing:.02em;margin:26px 0 10px}
+  section{margin-top:46px;border-top:1px solid var(--rule);padding-top:26px}
+  section:first-of-type{margin-top:0;border-top:0;padding-top:0}
+  .lede{font-size:19px;color:var(--ink-soft);max-width:36rem}
+  .meta{font-family:var(--mono);font-size:14px;color:var(--ink-soft);
+        margin:0 0 18px;padding:0;display:grid;grid-template-columns:auto 1fr;
+        gap:2px 14px;max-width:26rem}
+  .meta dt{color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+  .meta dd{margin:0}
+  .cover-note{font-size:17px;color:var(--ink-soft);max-width:36rem}
+  .actions{margin:20px 0 6px;padding:0;display:flex;flex-wrap:wrap;gap:12px}
+  .cta,.dl{display:inline-block;min-height:48px;padding:14px 22px;font-weight:600;
+           font-size:17px;line-height:1.2;text-decoration:none;border-radius:3px}
+  .cta{background:var(--accent);color:#f7f2e7;border:1px solid var(--accent)}
+  .cta:hover,.cta:focus{background:var(--accent-dark)}
+  .dl{border:1px solid var(--accent);color:var(--accent);background:transparent}
+  .dl:hover,.dl:focus{background:#efe8d8}
+  .panel{margin:26px 0;padding:12px 14px;background:#eef2f6;
+         border:1px solid var(--navy);border-left-width:4px}
+  .panel p{margin:0;font-size:15px}
+  .note{font-size:16px;font-style:italic;color:var(--ink-soft);max-width:36rem}
+  nav.toc{margin:34px 0 0;padding:16px 18px;border:1px solid var(--rule);
+          background:#fdfaf3}
+  nav.toc h2{font-family:var(--sans);font-size:14px;letter-spacing:.06em;
+             text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px}
+  nav.toc ol{margin:0;padding-left:1.3rem}
+  nav.toc li{margin:0 0 6px;font-size:16px}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0 6px}
+  table{width:100%;max-width:44rem;border-collapse:collapse;font-size:16px;
+        border:1px solid var(--rule)}
+  th{text-align:left;font-size:13px;letter-spacing:.05em;text-transform:uppercase;
+     color:#fff;background:var(--navy);font-weight:700;padding:8px 10px;
+     vertical-align:top}
+  td{text-align:left;vertical-align:top;padding:9px 10px;
+     border-top:1px solid var(--rule)}
+  td .code{font-family:var(--mono);white-space:nowrap}
+  td .r{display:block;text-align:right;font-variant-numeric:tabular-nums}
+  .cbox{display:inline-block;width:13px;height:13px;border:1px solid #44546a;
+        vertical-align:-1px}
+  ul{margin:0 0 16px;padding-left:1.15rem;max-width:36rem}
+  ol{margin:0 0 16px;padding-left:1.3rem;max-width:38rem}
+  li{margin:0 0 9px}
+  hr{border:0;border-top:1px solid var(--rule);margin:18px 0}
+  .foot{margin-top:52px;border-top:1px solid var(--rule);padding-top:18px;
+        font-size:16px;color:var(--ink-soft)}
+  .foot p{max-width:38rem}
+  .foot ul{padding-left:1.15rem}
+
+  pre.frm{margin:14px 0 18px;padding:12px 14px;background:#fdfaf3;
+          border:1px solid var(--rule);overflow-x:auto;
+          font-family:var(--mono);font-size:14px;line-height:1.45}
+  pre.frm code{white-space:pre-wrap;word-break:break-word;color:var(--ink)}
+  .disclaimer{font-size:16px;color:var(--ink-soft);max-width:34rem}
+  .tab-name{font-family:var(--mono);font-size:16px;white-space:nowrap}
+  .tbl-note{font-size:16px;color:var(--ink-soft);max-width:36rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="first">
+<p class="kicker">T776 Rental Books &mdash; free partial sample</p>
+<h1>A T776 spreadsheet you can open before you buy</h1>
+<p class="lede">The paid workbook is a Microsoft Excel file, and buying it blind is the one thing this page can fix. Below is exactly what the free partial sample contains - the tabs, the columns, the summary formula, and the example figures that formula works out - all read out of the sample file itself. Download it, type in it, watch the summary move.</p>
+<p class="actions"><a class="cta" href="../downloads/t776-sample.xlsx">Download the free sample (.xlsx)</a><a class="dl" href="https://maxhemmerich.github.io/t776-rental-books/">See the full workbook &mdash; $29 CAD</a></p>
+<p class="note">This page is generated from the sample file, not written about it: the tab names, the header rows and the formula strings are read out of the .xlsx, and every dollar figure below was produced by recalculating that same file in a spreadsheet engine. Nothing here is a claim about what the workbook will save you.</p>
+<p class="tbl-note">File: <span class="tab-name">t776-sample.xlsx</span> &mdash; a Microsoft Excel file, the same format as the paid workbook.</p>
+</section>
+<section>
+<h2>What the file itself says</h2>
+<p>Quoted from the sample's own READ ME tab:</p>
+<h3>What this file is</h3>
+<p>This is a partial sample of T776 Rental Books, the paid Excel workbook for Canadian landlords who file Form T776. It is not the workbook. It carries the paid file&#x27;s own header rows and its T776 Summary arithmetic, cut down to two properties and a handful of rows so you can watch the summary compute before you buy.</p>
+<h3>Every figure here is invented</h3>
+<p>The amounts on the Rent Ledger, Expenses and T776 Summary tabs are made-up example data, written only to show the arithmetic. None of it is a claim about what the workbook will show for your property, and none of it is a savings claim.</p>
+<h3>What the paid workbook has that this sample does not</h3>
+<h3>How to try it</h3>
+<p>Type into the shaded cells on the Setup, Rent Ledger and Expenses tabs. The T776 Summary tab totals itself — gross rents and each expense line, per property and per CRA line number, then Amount A, the line-9949 personal portion, deductible expenses and the line-9369 net. Press F9 to recalculate. The tax year is the one cell, B2 on the T776 Summary tab.</p>
+<h3>Disclaimer</h3>
+<p>T776 Rental Books is a bookkeeping aid. It is not tax, legal, or accounting advice. Check your categories and allocations with a qualified accountant.</p>
+<p>Partial free sample of T776 Rental Books, version 1.0. Example data invented for this file.</p>
+</section>
+<section>
+<h2>The tabs in the sample</h2>
+<p>The paid workbook has eight tabs. The free sample carries the four that show the arithmetic, plus a READ ME in place of START HERE:</p>
+<div class="scroll">
+<table>
+<thead><tr><th scope="col">Tab</th><th scope="col">The columns it gives you (its own header row, read from the file)</th></tr></thead>
+<tbody>
+<tr><td class="tab-name">READ ME</td><td>What the file is, what the paid workbook adds, and how to try it.</td></tr>
+<tr><td class="tab-name">Setup</td><td>Property ID &middot; Property name &middot; Address &middot; Province &middot; Your ownership % &middot; Date acquired &middot; Rental use % &middot; Notes</td></tr>
+<tr><td class="tab-name">Rent Ledger</td><td>Date received &middot; Property ID &middot; Unit &middot; Tenant &middot; Month (auto) &middot; Amount due &middot; Amount received &middot; Payment method &middot; Notes</td></tr>
+<tr><td class="tab-name">Expenses</td><td>Date paid &middot; Property ID &middot; T776 line &middot; Vendor / payee &middot; Description &middot; Amount &middot; GST/HST paid &middot; Receipt filed &middot; Repair or capital &middot; Rental share % (optional) &middot; Rental share applied</td></tr>
+<tr><td class="tab-name">T776 Summary</td><td>Line &middot; Description &middot; P1 &middot; P2 &middot; Total &middot; Personal portion (9949)</td></tr>
+</tbody></table></div>
+<p class="tbl-note">The Rent Ledger also carries a month grid beside the rows - Rent received by property and month &middot; Jan &middot; Feb &middot; Mar &middot; Apr &middot; May &middot; Jun &middot; Jul &middot; Aug &middot; Sep &middot; Oct &middot; Nov &middot; Dec &middot; Total - that totals rent received per property, per month.</p>
+</section>
+<section>
+<h2>The formula that does the totalling</h2>
+<p>The T776 Summary is not typed in. It reads the Rent Ledger and the Expenses tab and totals them per property and per CRA line number. These are the file's own formulas, quoted from the cells:</p>
+<p class="tbl-note">The gross-rents row sums the Rent Ledger by property and by the tax year in the one control cell. As it reads in the file:</p>
+<pre class="frm"><code>=SUMIFS(&#x27;Rent Ledger&#x27;!$G$5:$G$12,&#x27;Rent Ledger&#x27;!$B$5:$B$12,Setup!$A$5,&#x27;Rent Ledger&#x27;!$A$5:$A$12,&quot;&gt;=&quot;&amp;DATE($B$2,1,1),&#x27;Rent Ledger&#x27;!$A$5:$A$12,&quot;&lt;=&quot;&amp;DATE($B$2,12,31))</code></pre>
+<p class="tbl-note">Each expense line is a SUMPRODUCT of the Expenses tab: it matches the line code, the property and the tax year, keeps Capital rows out, and multiplies each amount by that row's rental share. As it reads in the file:</p>
+<pre class="frm"><code>=SUMPRODUCT((LEFT(Expenses!$C$5:$C$12,4)=$A15)*(Expenses!$B$5:$B$12=Setup!$A$5)*(Expenses!$I$5:$I$12&lt;&gt;&quot;Capital&quot;)*(Expenses!$A$5:$A$12&gt;=DATE($B$2,1,1))*(Expenses!$A$5:$A$12&lt;=DATE($B$2,12,31))*Expenses!$F$5:$F$12*Expenses!$K$5:$K$12)</code></pre>
+<p class="tbl-note">And the net line is the one subtraction the whole book builds to:</p>
+<pre class="frm"><code>=E5-E21</code></pre>
+</section>
+<section>
+<h2>What the sample computes</h2>
+<p>Recalculated from the sample file. Each column is a property, each row is a CRA line number, and the Total column is what would go on Form T776:</p>
+<div class="scroll">
+<table>
+<thead><tr>
+<th scope="col">Line</th>
+<th scope="col">Description</th>
+<th scope="col">P1</th>
+<th scope="col">P2</th>
+<th scope="col">Total</th>
+<th scope="col">Personal portion (9949)</th>
+</tr></thead>
+<tbody>
+<tr><td>8141</td><td>Gross rents</td><td><span class="r">$8,550.00</span></td><td><span class="r">$3,450.00</span></td><td><span class="r">$12,000.00</span></td><td></td></tr>
+<tr><td>8521</td><td>Advertising</td><td><span class="r">$120.00</span></td><td><span class="r">$0.00</span></td><td><span class="r">$120.00</span></td><td><span class="r">$0.00</span></td></tr>
+<tr><td>8690</td><td>Insurance</td><td><span class="r">$0.00</span></td><td><span class="r">$360.00</span></td><td><span class="r">$360.00</span></td><td><span class="r">$540.00</span></td></tr>
+<tr><td>8710</td><td>Interest and bank charges</td><td><span class="r">$5,200.00</span></td><td><span class="r">$0.00</span></td><td><span class="r">$5,200.00</span></td><td><span class="r">$0.00</span></td></tr>
+<tr><td>8810</td><td>Office expenses</td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td></tr>
+<tr><td>8860</td><td>Professional fees</td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td></tr>
+<tr><td>8871</td><td>Management and administration fees</td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td></tr>
+<tr><td>8960</td><td>Repairs and maintenance</td><td><span class="r">$350.00</span></td><td><span class="r">$104.00</span></td><td><span class="r">$454.00</span></td><td><span class="r">$156.00</span></td></tr>
+<tr><td>9060</td><td>Salaries, wages and benefits</td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td></tr>
+<tr><td>9180</td><td>Property taxes</td><td><span class="r">$2,400.00</span></td><td><span class="r">$0.00</span></td><td><span class="r">$2,400.00</span></td><td><span class="r">$0.00</span></td></tr>
+<tr><td>9200</td><td>Travel</td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td></tr>
+<tr><td>9220</td><td>Utilities</td><td><span class="r">$0.00</span></td><td><span class="r">$480.00</span></td><td><span class="r">$480.00</span></td><td><span class="r">$720.00</span></td></tr>
+<tr><td>9281</td><td>Motor vehicle expenses</td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td><td><span class="r">$0.00</span></td></tr>
+<tr><td>9270</td><td>Other expenses</td><td><span class="r">$180.00</span></td><td><span class="r">$0.00</span></td><td><span class="r">$180.00</span></td><td><span class="r">$0.00</span></td></tr>
+<tr><td>A</td><td>Amount A - total expenses, before the personal-use adjustment</td><td></td><td></td><td><span class="r">$10,610.00</span></td><td></td></tr>
+<tr><td>9949</td><td>Total for personal portion</td><td></td><td></td><td><span class="r">$1,416.00</span></td><td></td></tr>
+<tr><td></td><td>Deductible expenses (Amount A minus line 9949)</td><td></td><td></td><td><span class="r">$9,194.00</span></td><td></td></tr>
+<tr><td>9369</td><td>Net income (loss) before adjustments</td><td></td><td></td><td><span class="r">$2,806.00</span></td><td></td></tr>
+</tbody></table></div>
+<p class="tbl-note">Every figure above is invented example data, written to show the arithmetic - it is not a claim about your property and not a savings claim. In this example the sample's own formulas produce: gross rents $12,000.00; Amount A, the total before the personal-use adjustment, $10,610.00; the line-9949 personal portion $1,416.00; deductible expenses $9,194.00; and a line-9369 net of $2,806.00.</p>
+</section>
+<section>
+<h2>What the paid workbook adds</h2>
+<p>The sample is a partial sample. The paid workbook is the full version, and these are the differences the file itself lists:</p>
+<div class="scroll">
+<table>
+<thead><tr>
+<th scope="col">The paid workbook</th>
+<th scope="col">The free sample</th>
+</tr></thead>
+<tbody>
+<tr><td>Tabs</td><td>The paid file has eight: START HERE, Setup, Rent Ledger, Expenses, Mileage, T776 Summary, Capital &amp; CCA, T776 Codes. This sample carries four of them — Setup, Rent Ledger, Expenses, T776 Summary — plus this page in place of START HERE.</td></tr>
+<tr><td>Capacity</td><td>The paid file holds 10 properties, 500 ledger rows, 500 expense rows and 250 mileage rows. This sample holds 2 properties and 8 + 8 rows.</td></tr>
+<tr><td>Mileage</td><td>The paid file&#x27;s Mileage tab applies CRA&#x27;s per-kilometre rate and feeds line 9281. There is no Mileage tab here.</td></tr>
+<tr><td>Capital &amp; CCA</td><td>The paid file keeps rows flagged Capital out of the summary and lists them on a Capital &amp; CCA tab for your accountant. This sample has neither.</td></tr>
+<tr><td>Drop-downs</td><td>On the paid file the Expense T776-line, property, receipt and repair-or-capital cells are drop-downs driven by the T776 Codes tab. Here they are plain text so the file stays small.</td></tr>
+</tbody></table></div>
+</section>
+<section>
+<h2>Try it</h2>
+<p>Download the sample, type into the shaded cells on the Setup, Rent Ledger and Expenses tabs, and watch the T776 Summary tab follow. It is the same arithmetic as the paid workbook, cut down so the file stays small.</p>
+<p class="actions"><a class="cta" href="../downloads/t776-sample.xlsx">Download the free sample (.xlsx)</a><a class="dl" href="https://maxhemmerich.github.io/t776-rental-books/">Buy the full workbook &mdash; $29 CAD</a></p>
+<p class="disclaimer">T776 Rental Books is a bookkeeping aid. It is not tax, legal, or accounting advice. Check your categories and allocations with a qualified accountant.</p>
+</section>
+<div class="foot">
+  <p><b>T776 Rental Books</b> &mdash; the paid workbook this sample is cut from
+  is a Microsoft Excel file, sold on its own page:
+  <a href="https://maxhemmerich.github.io/t776-rental-books/">https://maxhemmerich.github.io/t776-rental-books/</a></p>
+  <p>The free Field Guide, which explains the T776 lines the sample totals:
+  <a href="../field-guide/">read it as a web page</a> or
+  <a href="../T776-Field-Guide.pdf">download the PDF</a>.</p>
+  <p>Every T776 expense line and its code, from the guide:
+  <a href="../expense-map/">the T776 expense line map</a>.</p>
+  <p>T776 Rental Books. Not affiliated with the Canada Revenue Agency.</p>
+</div>
+
+</div>
+</body>
+</html>
