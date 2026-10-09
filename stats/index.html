@@ -109,8 +109,8 @@
     runs JavaScript - a reload counts twice, a crawler that runs no JavaScript
     does not count. It is a load counter, not a unique-visitor count: there is
     no cookie, nothing is stored on the reader's device, and no personal data is
-    sent. The number below is refreshed live when this page loads, so it is the
-    count now.</p>
+    sent. The numbers below refresh live, one read at a time, when this page
+    loads; the figure shown is the last one read from the counter.</p>
   </header>
   <section class="first">
     <h2>The counter, by page</h2>
@@ -123,36 +123,36 @@
       <td>Landing page (the buy door)</td>
       <td><a href="https://maxhemmerich.github.io/t776-rental-books/">/</a></td>
       <td class="keycell">t776-rental-books-home</td>
-      <td><span class="r views" data-key="t776-rental-books-home">0</span></td>
+      <td><span class="r views" data-key="t776-rental-books-home">1</span></td>
     </tr>
     <tr>
       <td>Free Field Guide</td>
       <td><a href="https://maxhemmerich.github.io/t776-rental-books/field-guide/">/field-guide/</a></td>
       <td class="keycell">t776-rental-books-field-guide</td>
-      <td><span class="r views" data-key="t776-rental-books-field-guide">0</span></td>
+      <td><span class="r views" data-key="t776-rental-books-field-guide">3</span></td>
     </tr>
     <tr>
       <td>T776 expense line map</td>
       <td><a href="https://maxhemmerich.github.io/t776-rental-books/expense-map/">/expense-map/</a></td>
       <td class="keycell">t776-rental-books-expense-map</td>
-      <td><span class="r views" data-key="t776-rental-books-expense-map">0</span></td>
+      <td><span class="r views" data-key="t776-rental-books-expense-map">1</span></td>
     </tr>
     <tr>
       <td>Free partial sample</td>
       <td><a href="https://maxhemmerich.github.io/t776-rental-books/sample/">/sample/</a></td>
       <td class="keycell">t776-rental-books-sample</td>
-      <td><span class="r views" data-key="t776-rental-books-sample">0</span></td>
+      <td><span class="r views" data-key="t776-rental-books-sample">1</span></td>
     </tr>
     <tr>
       <td>How to file on Form T776</td>
       <td><a href="https://maxhemmerich.github.io/t776-rental-books/t776-how-to-file/">/t776-how-to-file/</a></td>
       <td class="keycell">t776-rental-books-t776-how-to-file</td>
-      <td><span class="r views" data-key="t776-rental-books-t776-how-to-file">0</span></td>
+      <td><span class="r views" data-key="t776-rental-books-t776-how-to-file">1</span></td>
     </tr>
         </tbody>
       </table>
     </div>
-    <p class="hint">Built 2026-10-08 23:15 Eastern Daylight Time. The counter service is
+    <p class="hint">Built 2026-10-08 23:22 Eastern Daylight Time. The counter service is
     <a href="https://abacus.jasoncameron.dev">Abacus</a>; this site's namespace
     is <span class="keycell">maxhemmerich.github.io</span>.</p>
   </section>
@@ -168,17 +168,26 @@
 <script>
 (function(){
   var base = "https://abacus.jasoncameron.dev/get/maxhemmerich.github.io/";
-  function fill(el){
-    var k = el.getAttribute("data-key");
+  var els = Array.prototype.slice.call(document.querySelectorAll(".views"));
+  // Read the keys one at a time. Abacus rate-limits a burst of reads, so a
+  // parallel fan-out gets 429s - and on any status that is not 200 (a live
+  // value) or 404 (genuinely no hits yet) this keeps the number already on the
+  // page instead of printing a false zero.
+  function read(i){
+    if(i >= els.length){ return; }
+    var el = els[i], k = el.getAttribute("data-key");
     if(!window.fetch || !k){ return; }
     fetch(base + k, {mode:"cors", cache:"no-store", credentials:"omit"})
-      .then(function(r){ return r.ok ? r.json() : {value: 0}; })
-      .then(function(j){ el.textContent = (j && typeof j.value === "number")
-        ? j.value : 0; })
-      .catch(function(){});
+      .then(function(r){
+        if(r.status === 404){ el.textContent = "0"; return; }
+        if(r.ok){ return r.json().then(function(j){
+          if(j && typeof j.value === "number"){ el.textContent = j.value; } }); }
+        el.title = "live read unavailable (" + r.status + ")";
+      })
+      .catch(function(){})
+      .then(function(){ setTimeout(function(){ read(i + 1); }, 1200); });
   }
-  var els = document.querySelectorAll(".views");
-  for (var i = 0; i < els.length; i++) { fill(els[i]); }
+  read(0);
 })();
 </script>
 </body>
